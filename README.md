@@ -2,6 +2,8 @@
 
 ## Predicting DDIs (Capstone Project)
 
+*Capstone Project*
+
 **Objective**: To reduce the extensive time and costs required for the research behind drug-drug interactions using Deep Learning Neural Networks.
 
 - Taught myself unfamiliar mathematical, machine learning and biochemical concepts.
@@ -10,7 +12,7 @@
 
 ## Project 5
 
-**Type**: Group Project
+*Group Project*
 
 **Objective**: To consult the U.S. Department of Housing and Urban Development (HUD) so that they can effectively increase accessibility for their counselling programs for those who seek guidance on housing affordability issues.
 
@@ -21,7 +23,7 @@
 
 ## Project 3
 
-**Type**: Solo Concept Project
+*Solo Concept Project*
 
 **Objective**: Create a model that is able to discern the language between subreddits r/LifeProTips and r/godtiersuperpowers posts which contain a redditor's genuine advice or superpower fantasy.
 
@@ -32,7 +34,7 @@
 
 ## Project 2
 
-**Type**: Solo Concept Project
+*Solo Concept Project*
 
 **Objective**: Identify the most valuable renovatable features of a house based in Ames, IA.
 
@@ -41,7 +43,7 @@
 
 # Project 1
 
-**Type**: Solo Concept Project
+*Solo Concept Project*
 
 **Objective**: Develop a more personalized SAT target for students by describing the extra effort required against peers within their 'intended major' cohorts and state to get into a 'prestigious' school.
 
