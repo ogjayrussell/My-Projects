@@ -1,6 +1,6 @@
 # Overview
 
-## Predicting DDIs (Capstone Project)
+## Predicting DDIs
 
 *Capstone Project*
 
