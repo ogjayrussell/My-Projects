@@ -1,6 +1,6 @@
-# My-Projects
+# Overview of My Projects
 
-# Capstone Project
+# Predicting DDIs (Capstone Project)
 
 **Objective**: To reduce the extensive time and costs required for the research behind drug-drug interactions using Deep Learning Neural Networks.
 
