@@ -1,6 +1,6 @@
-# Overview of My Projects
+# Overview
 
-# Predicting DDIs (Capstone Project)
+## Predicting DDIs (Capstone Project)
 
 **Objective**: To reduce the extensive time and costs required for the research behind drug-drug interactions using Deep Learning Neural Networks.
 
@@ -8,7 +8,7 @@
 - Investigated novel methodologies within the problem space.
 - Hosted an SQL server to interact with big data.
 
-# Project 5
+## Project 5
 
 **Type**: Group Project
 
@@ -19,7 +19,7 @@
 - Pulled data from various sources.
 - Tech Stack: Tableau, VARS, API.
 
-# Project 3
+## Project 3
 
 **Type**: Solo Concept Project
 
@@ -30,7 +30,7 @@
 - Optimised models to obtain their highest predictive power.
 - Tech Stack: nltk, API, Pandas, Numpy, Matplotlib, Seaborn, Scikit-learn.
 
-# Project 2
+## Project 2
 
 **Type**: Solo Concept Project
 
