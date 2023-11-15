@@ -1,0 +1,411 @@
+school,accept_rate,25th_percentile,75th_percentile
+Stanford University,0.043,1440.0,1570.0
+Harvard College,0.047,1460.0,1580.0
+Princeton University,0.055,1440.0,1570.0
+Columbia University,0.055,1450.0,1560.0
+Yale University,0.061,1460.0,1570.0
+California Institute of Technology,0.064,1530.0,1560.0
+Massachusetts Institute of Technology,0.067,1500.0,1570.0
+Brown University,0.071,1440.0,1570.0
+University of Chicago,0.073,1490.0,1570.0
+Pomona College,0.07400000000000001,1390.0,1540.0
+University of Pennsylvania,0.077,1450.0,1560.0
+Dartmouth College,0.079,1440.0,1560.0
+Bowdoin College,0.08800000000000001,1330.0,1520.0
+Duke University,0.08900000000000001,1450.0,1570.0
+Swarthmore College,0.08900000000000001,1380.0,1540.0
+Northwestern University,0.091,1440.0,1550.0
+Vanderbilt University,0.091,1460.0,1560.0
+Claremont McKenna College,0.10300000000000001,1360.0,1510.0
+Johns Hopkins University,0.106,1470.0,1560.0
+Cornell University,0.109,1400.0,1560.0
+Rice University,0.111,1450.0,1560.0
+Amherst College,0.113,1410.0,1550.0
+Barnard College,0.11800000000000001,1340.0,1520.0
+Bates College,0.121,1270.0,1480.0
+University of California—​Los Angeles,0.12300000000000001,1290.0,1510.0
+Tulane University,0.129,1360.0,1520.0
+University of Southern California,0.13,1350.0,1530.0
+Williams College,0.13,1410.0,1550.0
+Colby College,0.13,1350.0,1510.0
+Pitzer College,0.133,1340.0,1490.0
+Colorado College,0.135,1300.0,1480.0
+Harvey Mudd College,0.13699999999999998,1490.0,1570.0
+Georgetown University,0.145,1370.0,1530.0
+University of California—​Berkeley,0.14800000000000002,1300.0,1530.0
+Tufts University,0.15,1390.0,1540.0
+Washington University in St. Louis,0.15,1470.0,1570.0
+Middlebury College,0.154,1360.0,1530.0
+Carnegie Mellon University,0.154,1460.0,1560.0
+University of Notre Dame,0.158,1400.0,1550.0
+The Cooper Union,0.16,1283.0,1510.0
+New York University,0.162,1370.0,1510.0
+Haverford College,0.163,1380.0,1540.0
+Wesleyan University,0.165,1320.0,1510.0
+Hamilton College,0.165,1370.0,1520.0
+Northeastern University,0.18100000000000002,1390.0,1540.0
+Davidson College,0.18100000000000002,1310.0,1485.0
+Emory University,0.185,1350.0,1520.0
+Carleton College,0.19,1360.0,1540.0
+Georgia Institute of Technology,0.20600000000000002,1300.0,1510.0
+Washington and Lee University,0.212,1348.0,1490.0
+Wellesley College,0.21600000000000003,1360.0,1530.0
+Boston University,0.221,1330.0,1500.0
+Colgate University,0.226,1330.0,1500.0
+University of North Carolina—​Chapel Hill,0.226,1300.0,1490.0
+University of Michigan—​Ann Arbor,0.22899999999999998,1340.0,1530.0
+Vassar College,0.237,1370.0,1530.0
+Rhode Island School of Design,0.239,1180.0,1440.0
+University of Virginia,0.239,1340.0,1500.0
+Grinnell College,0.244,1370.0,1530.0
+Babson College,0.24,1270.0,1450.0
+University of California—​Irvine,0.265,1180.0,1440.0
+University of Miami,0.271,1280.0,1420.0
+Boston College,0.272,1370.0,1490.0
+Villanova University,0.282,1320.0,1470.0
+University of Richmond,0.28300000000000003,1290.0,1460.0
+California State Polytechnic University—​San Luis Obispo,0.284,1250.0,1420.0
+Trinity University,0.28800000000000003,1290.0,1450.0
+Case Western Reserve University,0.293,1350.0,1520.0
+University of Rochester,0.295,1300.0,1500.0
+University of California—​Santa Barbara,0.29600000000000004,1260.0,1460.0
+Wake Forest University,0.29600000000000004,1320.0,1490.0
+Skidmore College,0.3,1220.0,1400.0
+University of California—​San Diego,0.302,1250.0,1470.0
+Franklin and Marshall College,0.304,1250.0,1460.0
+Brandeis University,0.311,1280.0,1500.0
+Lafayette College,0.315,1250.0,1440.0
+American University,0.315,1220.0,1380.0
+University of Texas—​Austin,0.318,1240.0,1470.0
+Scripps College,0.32,1333.0,1490.0
+Lehigh University,0.321,1280.0,1450.0
+Macalester College,0.32299999999999995,1320.0,1510.0
+Smith College,0.325,1340.0,1520.0
+Bryn Mawr College,0.331,1290.0,1510.0
+Trinity College (Hartford),0.335,1300.0,1460.0
+Denison University,0.33899999999999997,1210.0,1380.0
+San Diego State University,0.34,1110.0,1320.0
+Kenyon College,0.341,1270.0,1460.0
+College of the Holy Cross,0.342,1260.0,1430.0
+Bucknell University,0.342,1255.0,1430.0
+Emerson College,0.35600000000000004,1200.0,1390.0
+Pepperdine University,0.35700000000000004,1220.0,1420.0
+Hampton University,0.36,1040.0,1310.0
+Oberlin College,0.364,1280.0,1480.0
+CUNY--Hunter,0.364,1090.0,1260.0
+Occidental College,0.36700000000000005,1300.0,1480.0
+Connecticut College,0.374,1310.0,1450.0
+College of William and Mary,0.377,1320.0,1510.0
+Mount Holyoke College,0.382,1270.0,1490.0
+Berea College,0.382,1030.0,1213.0
+Pratt Institute,0.385,1100.0,1320.0
+Soka University of America,0.38799999999999996,1180.0,1410.0
+California State University--Los Angeles,0.39,890.0,1080.0
+California State University--Long Beach,0.39299999999999996,1040.0,1250.0
+Reed College,0.395,1325.0,1520.0
+Binghamton University—​SUNY,0.39799999999999996,1310.0,1440.0
+Dickinson College,0.401,1240.0,1410.0
+University of Tulsa,0.408,1180.0,1410.0
+George Washington University,0.409,1280.0,1470.0
+University of California—​Davis,0.41200000000000003,1150.0,1410.0
+Stevens Institute of Technology,0.414,1330.0,1480.0
+St. Lawrence University,0.424,1160.0,1350.0
+Union College (Schenectady NY),0.429,1220.0,1420.0
+Rensselaer Polytechnic Institute,0.43,1330.0,1500.0
+Bentley University,0.43200000000000005,1240.0,1410.0
+CUNY--Baruch College,0.434,1130.0,1330.0
+Spelman College,0.434,1080.0,1230.0
+Loyola Marymount University,0.43799999999999994,1230.0,1410.0
+University of Maryland—​College Park,0.441,1280.0,1480.0
+Stony Brook University—​SUNY,0.441,1230.0,1440.0
+Rhodes College,0.447,1220.0,1430.0
+North Carolina State University—​Raleigh,0.449,1250.0,1390.0
+Baylor University,0.45299999999999996,1200.0,1380.0
+University of Dallas,0.45299999999999996,1150.0,1360.0
+Gettysburg College,0.45399999999999996,1270.0,1420.0
+Fordham University,0.46,1250.0,1430.0
+Texas Christian University,0.47100000000000003,1150.0,1350.0
+Southern Methodist University,0.473,1300.0,1480.0
+Providence College,0.475,1210.0,1350.0
+St. Olaf College,0.475,1190.0,1430.0
+University of New Mexico,0.486,1040.0,1270.0
+University of Georgia,0.486,1240.0,1410.0
+University of San Diego,0.48700000000000004,1200.0,1350.0
+University of Connecticut,0.488,1210.0,1420.0
+Santa Clara University,0.488,1280.0,1440.0
+Southwestern University,0.49,1140.0,1320.0
+Pennsylvania State University—​University Park,0.491,1160.0,1370.0
+Marist College,0.49200000000000005,1210.0,1360.0
+The College of New Jersey,0.493,1160.0,1360.0
+Worcester Polytechnic Institute,0.494,1310.0,1470.0
+Syracuse University,0.499,1180.0,1370.0
+University of La Verne,0.509,1020.0,1205.0
+Clemson University,0.513,1230.0,1400.0
+Austin College,0.513,1110.0,1290.0
+University of California—​Santa Cruz,0.515,1200.0,1360.0
+University of Washington--Seattle,0.518,1240.0,1440.0
+California State University--Fullerton,0.527,1030.0,1200.0
+University of Wisconsin—​Madison,0.53,1330.0,1450.0
+Colorado School of Mines,0.531,1260.0,1460.0
+Chapman University,0.536,1190.0,1370.0
+Ohio State University—​Columbus,0.537,1250.0,1460.0
+Texas Lutheran University,0.5429999999999999,990.0,1160.0
+University at Albany—​SUNY,0.5429999999999999,1090.0,1250.0
+Georgia Southern,0.545,1050.0,1200.0
+College of Wooster,0.547,1150.0,1380.0
+San Jose State University,0.547,1040.0,1260.0
+California State Polytechnic University--Pomona,0.555,1030.0,1250.0
+Whitman College,0.5579999999999999,1240.0,1450.0
+Sarah Lawrence College,0.5579999999999999,1240.0,1420.0
+New School,0.5660000000000001,1150.0,1360.0
+University of Pittsburgh,0.5670000000000001,1260.0,1440.0
+University of California Riverside,0.5670000000000001,1130.0,1340.0
+University of Minnesota—​Twin Cities,0.5670000000000001,1260.0,1480.0
+Hobart and William Smith Colleges,0.569,1203.0,1360.0
+Abilene Christian University,0.57,1040.0,1230.0
+Bennington College,0.57,1230.0,1390.0
+Birmingham-​Southern College,0.57,1040.0,1250.0
+Fairfield University,0.5710000000000001,1210.0,1350.0
+Georgia State,0.574,990.0,1190.0
+Texas A&M University—​College Station,0.575,1160.0,1390.0
+Saint Louis University,0.575,1180.0,1370.0
+St. John's College Annapolis,0.5760000000000001,1210.0,1450.0
+Lake Forest College,0.579,1110.0,1310.0
+Kennesaw State University,0.579,1080.0,1270.0
+California State University--Fresno,0.579,950.0,1130.0
+Rollins College,0.583,1160.0,1340.0
+University of Hawaii at Manoa,0.584,1070.0,1270.0
+University of Denver,0.5870000000000001,1170.0,1350.0
+Hampden-​Sydney College,0.59,1050.0,1250.0
+University of Illinois—​Urbana-​Champaign,0.59,1220.0,1480.0
+Millsaps College,0.593,1080.0,1260.0
+California State University--Northridge,0.593,910.0,1130.0
+Clark University,0.594,1200.0,1390.0
+Lipscomb University,0.595,1060.0,1320.0
+Virginia Military Institute,0.595,1090.0,1270.0
+Purdue University—​West Lafayette,0.598,1190.0,1440.0
+Temple University,0.6,1120.0,1320.0
+Rutgers The State University of New Jersey—​New Brunswick,0.601,1190.0,1410.0
+Illinois Institute of Technology,0.602,1190.0,1400.0
+Yeshiva University,0.603,1140.0,1400.0
+Illinois Wesleyan University,0.608,1120.0,1320.0
+Furman University,0.611,1230.0,1410.0
+University at Buffalo—​SUNY,0.611,1160.0,1340.0
+Concordia College—​Moorhead,0.612,1080.0,1368.0
+SUNY College of Environmental Science and Forestry,0.614,1120.0,1310.0
+University of Portland,0.615,1160.0,1330.0
+Cornell College,0.618,1100.0,1345.0
+Muhlenberg College,0.618,1170.0,1360.0
+Gonzaga University,0.619,1210.0,1358.0
+Beloit College,0.62,1080.0,1380.0
+Lawrence University,0.621,1200.0,1430.0
+University of Utah,0.621,1142.5,1380.0
+Allegheny College,0.622,1170.0,1360.0
+University of Delaware,0.624,1170.0,1350.0
+Westmont College,0.624,1110.0,1370.0
+Luther College,0.626,1050.0,1310.0
+Rutgers The State University of New Jersey—​Newark,0.627,1020.0,1190.0
+Earlham College,0.634,1100.0,1370.0
+Augustana College,0.636,1070.0,1280.0
+Wofford College,0.636,1180.0,1350.0
+New Jersey Institute of Technology,0.637,1190.0,1380.0
+University of Massachusetts—​Amherst,0.638,1190.0,1390.0
+Wabash College,0.642,1120.0,1320.0
+DePauw University,0.644,1130.0,1360.0
+Drury University,0.644,1045.0,1225.0
+St. John Fisher College,0.645,1070.0,1260.0
+University of San Francisco,0.6459999999999999,1130.0,1330.0
+Bard College,0.6459999999999999,1248.0,1420.0
+Goshen College,0.647,1010.0,1210.0
+Agnes Scott College,0.648,1130.0,1340.0
+Virginia Polytechnic Institute and State University,0.648,1180.0,1390.0
+University of Houston,0.65,1140.0,1310.0
+University of North Carolina—​Charlotte,0.65,1120.0,1290.0
+Truman State University,0.653,1080.0,1358.0
+University of North Carolina—​Wilmington,0.655,1170.0,1320.0
+SUNY—​Geneseo,0.655,1120.0,1310.0
+Embry-​Riddle Aeronautical University,0.655,1110.0,1320.0
+University of the Pacific,0.6559999999999999,1130.0,1360.0
+Rochester Institute of Technology,0.66,1200.0,1400.0
+Berry College,0.6609999999999999,1110.0,1310.0
+Mississippi State University,0.6629999999999999,1070.0,1280.0
+Sewanee—​University of the South,0.667,1150.0,1340.0
+Hanover College,0.669,1078.0,1300.0
+Coe College,0.669,1078.0,1300.0
+Randolph-​Macon College,0.6709999999999999,1020.0,1240.0
+Loyola University Chicago,0.672,1140.0,1320.0
+University of Vermont,0.6729999999999999,1180.0,1360.0
+San Francisco State University,0.6729999999999999,940.0,1150.0
+Brigham Young University—​Provo,0.675,1210.0,1420.0
+Drake University,0.6759999999999999,1100.0,1370.0
+Stonehill College,0.677,1120.0,1290.0
+Elmhurst College,0.6779999999999999,990.0,1210.0
+Taylor University,0.6809999999999999,1080.0,1310.0
+DePaul University,0.682,1070.0,1290.0
+Knox College,0.6829999999999999,1090.0,1350.0
+Hofstra University,0.685,1160.0,1340.0
+Ithaca College,0.685,1160.0,1338.0
+California State University--San Bernardino,0.6859999999999999,910.0,1090.0
+University of South Carolina,0.6859999999999999,1180.0,1370.0
+Albion College,0.688,990.0,1200.0
+Presbyterian College (SC),0.688,1010.0,1210.0
+Texas Tech University,0.6890000000000001,1070.0,1260.0
+Ohio Wesleyan University,0.69,1060.0,1295.0
+Ripon College,0.69,1000.0,1210.0
+Drew University,0.6920000000000001,1110.0,1310.0
+Central Michigan,0.695,990.0,1200.0
+Oklahoma State University,0.7,1040.0,1265.0
+Bradley University,0.7020000000000001,1070.0,1270.0
+Seton Hall University,0.7040000000000001,1150.0,1310.0
+Biola University,0.705,1080.0,1310.0
+Ursinus College,0.7090000000000001,1140.0,1320.0
+Montclair State,0.7090000000000001,990.0,1170.0
+Clarkson University,0.711,1160.0,1350.0
+Michigan State University,0.711,1100.0,1320.0
+Hollins University,0.7120000000000001,1070.0,1300.0
+Creighton University,0.7140000000000001,1150.0,1350.0
+California Lutheran University,0.715,1070.0,1250.0
+University of Mary Washington,0.718,1050.0,1269.0
+Christopher Newport University,0.7190000000000001,1110.0,1280.0
+University of California—Merced,0.72,980.0,1180.0
+Mercer University,0.72,1180.0,1340.0
+University of Dayton,0.72,1120.0,1320.0
+Lewis & Clark College,0.722,1220.0,1400.0
+Hendrix College,0.722,1153.0,1390.0
+University of Rhode Island,0.723,1012.0,1345.0
+California State University--Chico,0.723,990.0,1180.0
+Stetson University,0.7240000000000001,1110.0,1300.0
+Quinnipiac University,0.725,1090.0,1260.0
+Duquesne University,0.725,1130.0,1300.0
+University of Illinois—​Chicago,0.727,1030.0,1260.0
+University of Akron,0.73,990.0,1230.0
+St. John's University (NY),0.731,1070.0,1270.0
+University of Cincinnati,0.731,1160.0,1370.0
+Simmons University,0.731,1110.0,1290.0
+Wayne State University,0.731,1010.0,1230.0
+Butler University,0.732,1150.0,1330.0
+Point Loma Nazarene University,0.737,1140.0,1310.0
+University of North Texas,0.737,1060.0,1250.0
+University of North Georgia,0.737,1108.0,1273.0
+Xavier University,0.738,1070.0,1250.0
+Wheaton College (MA),0.7390000000000001,1150.0,1340.0
+Eastern Michigan,0.741,970.0,1190.0
+University of Washington--Bothell,0.741,1038.0,1250.0
+Adelphi University,0.742,1080.0,1270.0
+Baldwin Wallace University,0.742,1030.0,1250.0
+Michigan Technological University,0.743,1170.0,1370.0
+Drexel University,0.747,1190.0,1390.0
+University of Redlands,0.75,1100.0,1250.0
+Loyola University New Orleans,0.75,1050.0,1260.0
+California State University--Monterey Bay,0.753,960.0,1170.0
+Whittier College,0.759,1030.0,1213.0
+Kalamazoo College,0.76,1170.0,1370.0
+Towson University,0.763,1060.0,1220.0
+Centre College,0.764,1130.0,1380.0
+University of Texas San Antonio,0.7659999999999999,1030.0,1220.0
+James Madison University,0.768,1120.0,1290.0
+Appalachian State University,0.768,1100.0,1270.0
+Indiana University—​Bloomington,0.769,1150.0,1360.0
+High Point University,0.769,1090.0,1250.0
+Virginia Commonwealth University,0.7709999999999999,1070.0,1260.0
+University of Arkansas—​Fayetteville,0.7709999999999999,1120.0,1300.0
+John Brown University,0.7709999999999999,1060.0,1365.0
+University of Idaho,0.778,1010.0,1240.0
+University of Missouri,0.778,1090.0,1290.0
+Willamette University,0.779,1140.0,1340.0
+University of Nebraska—​Lincoln,0.782,1120.0,1360.0
+Carroll College,0.7829999999999999,1070.0,1270.0
+College of Charleston,0.7829999999999999,1080.0,1260.0
+University of Colorado—​Boulder,0.784,1140.0,1350.0
+Elon University,0.784,1160.0,1320.0
+Seattle University,0.785,1160.0,1330.0
+University of Texas—​Dallas,0.7859999999999999,1240.0,1460.0
+East Carolina,0.787,1030.0,1190.0
+University of Tennessee,0.7879999999999999,1150.0,1330.0
+University of Texas Arlington,0.795,1060.0,1260.0
+Pacific Lutheran University,0.7979999999999999,1070.0,1270.0
+Western Michigan,0.799,1000.0,1210.0
+Loyola University Maryland,0.802,1143.0,1320.0
+Miami University—​Oxford,0.804,1210.0,1410.0
+Goucher College,0.804,1040.0,1290.0
+University of Oklahoma,0.804,1130.0,1310.0
+Auburn University,0.807,1150.0,1320.0
+University of Nevada—​Las Vegas,0.807,1030.0,1250.0
+Boise State,0.8079999999999999,960.0,1180.0
+St. Mary's College of California,0.81,1070.0,1240.0
+Siena College,0.8109999999999999,1070.0,1280.0
+University of North Dakota,0.8109999999999999,1010.0,1250.0
+Texas State University,0.8109999999999999,1010.0,1180.0
+Colorado State University,0.8140000000000001,1070.0,1290.0
+University of Memphis,0.8140000000000001,1010.0,1230.0
+West Virginia University,0.816,1050.0,1240.0
+University of Oregon,0.816,1100.0,1310.0
+University of St. Thomas (MN),0.8190000000000001,1130.0,1380.0
+St. Mary's College (IN),0.8190000000000001,1050.0,1260.0
+Illinois State,0.8190000000000001,1020.0,1220.0
+Ohio University,0.821,1050.0,1260.0
+California State University--Sacramento,0.823,940.0,1140.0
+University of North Carolina—​Greensboro,0.8240000000000001,1000.0,1160.0
+University of Iowa,0.826,1130.0,1340.0
+St. Michael's College,0.826,1140.0,1320.0
+University of Alaska Anchorage,0.83,1020.0,1220.0
+Marquette University,0.83,1120.0,1320.0
+College of St. Benedict,0.8340000000000001,990.0,1210.0
+Oregon State University,0.836,1080.0,1320.0
+The Catholic University of America,0.8370000000000001,1140.0,1320.0
+University of Puget Sound,0.838,1150.0,1370.0
+University of New Hampshire,0.84,1070.0,1270.0
+Missouri University of Science & Technology,0.8420000000000001,1180.0,1380.0
+St. Mary's College of Maryland,0.843,1060.0,1290.0
+University of Arizona,0.846,1120.0,1350.0
+Susquehanna University,0.848,1100.0,1290.0
+Arizona State University—​Tempe,0.848,1130.0,1360.0
+Wheaton College (IL),0.848,1220.0,1440.0
+Northern Arizona,0.85,1030.0,1230.0
+Washington and Jefferson College,0.852,1090.0,1280.0
+Kent State,0.855,1040.0,1230.0
+Mills College,0.855,1008.0,1240.0
+Hope College,0.857,1130.0,1330.0
+Valparaiso University,0.858,1070.0,1290.0
+George Mason University,0.867,1110.0,1320.0
+Old Dominion,0.87,990.0,1200.0
+Missouri State,0.879,1040.0,1240.0
+University of Wisconsin Milwaukee,0.885,1000.0,1398.0
+Transylvania University,0.887,1100.0,1310.0
+University of Maine,0.902,1050.0,1260.0
+Humboldt State University,0.909,980.0,1190.0
+Utah State,0.91,1050.0,1310.0
+Iowa State University,0.9209999999999999,1100.0,1340.0
+Washington College,0.924,1090.0,1300.0
+University of Montana,0.9259999999999999,1060.0,1270.0
+Samford University,0.929,1070.0,1250.0
+University of Kentucky,0.945,1080.0,1300.0
+University of Toledo,0.951,1000.0,1240.0
+Portland State,0.961,1010.0,1230.0
+Queens University of Charlotte,0.9620000000000001,1040.0,1240.0
+Western Kentucky,0.973,990.0,1220.0
+United States Naval Academy,0.083,1240.0,1520.0
+United States Military Academy,0.10300000000000001,1160.0,1380.0
+United States Air Force Academy,0.111,1230.0,1440.0
+United States Coast Guard Academy,0.128,1245.0,1420.0
+United States Merchant Maritime Academy,0.248,1200.0,1340.0
+Howard University,0.316,1140.0,1285.0
+Florida State University,0.36,1200.0,1340.0
+Hillsdale College,0.36,1275.0,1465.0
+University of Central Florida,0.382,1160.0,1340.0
+University of Florida,0.38799999999999996,1280.0,1440.0
+University of South Florida,0.47700000000000004,1170.0,1330.0
+Gallaudet University,0.5710000000000001,793.0,1078.0
+Florida International,0.575,1240.0,1300.0
+Morehouse College,0.579,1010.0,1210.0
+University of Alabama,0.591,1060.0,1280.0
+Florida Institute of Technology,0.657,1150.0,1360.0
+Louisiana State University—​Baton Rouge,0.746,1080.0,1310.0
+The Citadel,0.747,1050.0,1230.0
+New College of Florida,0.768,1220.0,1420.0
+Thomas Aquinas College,0.777,1220.0,1400.0
+University of Texas Rio Grande Valley,0.7979999999999999,950.0,1130.0
+University of South Dakota,0.8640000000000001,990.0,1180.0
+University of Mississippi,0.8809999999999999,1050.0,1270.0
+University of Wyoming,0.96,1060.0,1280.0
+University of Texas El Paso,0.9990000000000001,820.0,1050.0
