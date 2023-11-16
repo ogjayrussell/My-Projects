@@ -41,7 +41,7 @@
 - Applied machine learning and trialled models (OLS, lasso and ridge regression) for inference.
 - Tech Stack: Pandas, Numpy, Matplotlib, Seaborn, Scikit-learn.
 
-# Project 1
+## Project 1
 
 *Solo Concept Project*
 
