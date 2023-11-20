@@ -6,6 +6,7 @@ import dotenv
 import argparse
 import autogen
 from db import PostgresDatabase
+import llm
 
 dotenv.load_dotenv()
 
@@ -14,31 +15,23 @@ key = os.environ.get('OPENAI_API_KEY')
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("prompt", help="Prompt for the OpenAI API")
-    args = parser.parse_args()
+    #parse prompt param using arg parse
 
     with PostgresDatabase() as db:
         db.connect_with_url(DB_URL)
-        table_definitions = db.get_table_definitions_for_prompt()
+        
 
-    prompt = llm.add_cap_ref(args.prompt, "", "TABLE_DEFINITIONS", table_definitions)
-    prompt = llm.add_cap_ref(prompt, "", "EXAMPLE", "SELECT * FROM patients")
+    #call PostgresDatabase.get_table_definition_for_prompt() to get tables in prompt ready form
 
-    prompt_response = llm.prompt(prompt)
+    # create two blank calls to llm.add_cap_ref() that update our current prompt passed in from the command line
 
-    sql_query = prompt_response.split('------------')[1].strip()
+    # call llm.prompt to get a prompt_response variable
 
-    with PostgresDatabase() as db:
-        db.connect_with_url(DB_URL)
-        result = db.run_sql(sql_query)
+    # parse sql response from prompt_response using SQL_QUERY_DELIMITER '------------'
+
+    # call PostgresDatabase.run_sql() with the parsed sql
 
     print(result)
-
-
-
-
-
 
 
 if __name__ == '__main__':
