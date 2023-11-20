@@ -18,20 +18,35 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("prompt", help="Prompt for the OpenAI API")
     args = parser.parse_args()
-
+    
     with PostgresDatabase() as db:
+        
         db.connect_with_url(DB_URL)
+
         table_definitions = db.get_table_definitions_for_prompt()
 
-    prompt = llm.add_cap_ref(args.prompt, "", "TABLE_DEFINITIONS", table_definitions)
-    prompt = llm.add_cap_ref(prompt, "", "EXAMPLE", "SELECT * FROM patients")
+        print('prompt v1', prompt)
 
-    prompt_response = llm.prompt(prompt)
+        prompt = llm.add_cap_ref(
+            args.prompt,
+            f"Use these {TABLE_DEFINITIONS} to satisfy the database query.",
+            TABLE_DEFINITIONS, 
+            table_definitions)
+        
+        print('prompt v2', prompt)
+        
+        prompt = llm.add_cap_ref(
+            prompt, 
+            "Please provide the SQL query:", 
+            "SQL_QUERY", 
+            "")
+        
+        print('prompt v3', prompt)
 
-    sql_query = prompt_response.split('------------')[1].strip()
+        prompt_response = llm.prompt(prompt)
 
-    with PostgresDatabase() as db:
-        db.connect_with_url(DB_URL)
+        sql_query = prompt_response.split('------------')[1].strip()
+
         result = db.run_sql(sql_query)
 
     print(result)
@@ -39,3 +54,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+ 
