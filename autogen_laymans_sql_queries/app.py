@@ -14,27 +14,26 @@ key = os.environ.get('OPENAI_API_KEY')
 
 
 def main():
-
-    #parse prompt param using arg parse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("prompt", help="Prompt for the OpenAI API")
+    args = parser.parse_args()
 
     with PostgresDatabase() as db:
         db.connect_with_url(DB_URL)
+        table_definitions = db.get_table_definitions_for_prompt()
 
-        patients = db.get_all('patients')
+    prompt = llm.add_cap_ref(args.prompt, "", "TABLE_DEFINITIONS", table_definitions)
+    prompt = llm.add_cap_ref(prompt, "", "EXAMPLE", "SELECT * FROM patients")
 
-        print(patients)
+    prompt_response = llm.prompt(prompt)
 
-    # call db_manager.get_table_definition_for_prompt() to get tables in prompt ready form
+    sql_query = prompt_response.split('------------')[1].strip()
 
-    # create two blank calls to llm.add_cap_ref() that update our current prompt passed in from the commanc line
+    with PostgresDatabase() as db:
+        db.connect_with_url(DB_URL)
+        result = db.run_sql(sql_query)
 
-    # call llm.prompt to get a prompt_response variable
-
-    # parse sql response from prompt_response using SQL_QUERY_DELIMITER '------------'
-
-    # call db_manager.run_sql() with the parsed sql
-
-pass
+    print(result)
 
 
 
