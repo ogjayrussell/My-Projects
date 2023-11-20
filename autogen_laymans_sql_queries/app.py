@@ -7,10 +7,11 @@ import argparse
 import autogen
 from db import PostgresDatabase
 
+dotenv.load_dotenv()
 
-engine = create_engine('postgresql://postgres:r2foru@localhost:5432/patient_data')
-DB_URL = 'postgresql://postgres:r2foru@localhost:5432/patient_data'
-OPEN_AI_KEY = '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'
+DB_URL = os.environ.get('DB_URL')
+key = os.environ.get('OPENAI_API_KEY')
+
 
 def main():
 
