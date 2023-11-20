@@ -82,8 +82,3 @@ class PostgresDatabase:
     def get_table_definitions_for_prompt(self):
         table_names = self.get_all_table_names()
         return "\n".join([self.get_table_definition(table) for table in table_names])
-
-# Usage example
-# with PostgresDB() as db:
-#     db.connect_with_url(YOUR_CONNECTION_URL)
-#     print(db.get_all_table_names())
