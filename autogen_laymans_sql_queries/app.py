@@ -13,6 +13,7 @@ DB_URL = 'postgresql://postgres:r2foru@localhost:5432/patient_data'
 OPEN_AI_KEY = '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'
 
 def main():
+
     with PostgresDatabase() as db:
         db.connect_with_url(DB_URL)
 
@@ -20,6 +21,7 @@ def main():
 
         print(patients)
 
+pass
 
 # build the gpt_configuration object
 
@@ -37,3 +39,5 @@ def main():
 
 
 
+if __name__ == '__main__':
+    main()

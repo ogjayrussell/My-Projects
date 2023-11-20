@@ -71,3 +71,18 @@ Example bash command:
     )
 
     return response_parser(response)
+
+def add_cap_ref(prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: str) -> str:
+    """
+    Attaches a capitalized reference to the prompt.
+    
+    Example
+    prompt = 'Refactor this code.'
+    prompt_suffix = 'Make it more readable using this EXAMPLE.'
+    cap_ref = 'EXAMPLE'
+    cap_ref_content = 'def foo():\n    return True'
+    
+    returns 'Refactor this code. Make it more readable using this EXAMPLE.\n\nEXAMPLE\n\ndef foo():\n    return True'
+    """
+    new_prompt = f"""{prompt} {prompt_suffix}\n\n{cap_ref}\n\n{cap_ref_content}"""
+    return new_prompt
