@@ -10,9 +10,11 @@ from db import PostgresDatabase
 
 engine = create_engine('postgresql://postgres:r2foru@localhost:5432/patient_data')
 DB_URL = 'postgresql://postgres:r2foru@localhost:5432/patient_data'
-OPEN_AI_KEY = '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'
+OPEN_AI_KEY = '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'
 
 def main():
+
+    #parse prompt param using arg parse
 
     with PostgresDatabase() as db:
         db.connect_with_url(DB_URL)
@@ -21,21 +23,21 @@ def main():
 
         print(patients)
 
+    # call db_manager.get_table_definition_for_prompt() to get tables in prompt ready form
+
+    # create two blank calls to llm.add_cap_ref() that update our current prompt passed in from the commanc line
+
+    # call llm.prompt to get a prompt_response variable
+
+    # parse sql response from prompt_response using SQL_QUERY_DELIMITER '------------'
+
+    # call db_manager.run_sql() with the parsed sql
+
 pass
 
-# build the gpt_configuration object
 
-# build the function map
 
-# create our terminate msg function
 
-# create a set of agents with specific roles
-# admin user proxy agent - takes in the prompt and manages the group chat
-# data engineer agent - generates the sql query
-# sr data analyst agent - run the sql query and generate the response
-# product manager - validate the response to make sure it's correct
-
-# create a group chat and initiate the chat.
 
 
 
