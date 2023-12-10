@@ -2,7 +2,7 @@ import networkx as nx
 import pandas as pd
 def jac(train_graph, test_graph, edges_train, edges_test):
     
-    #creating a list of all of the possible edges present in the graph (matrix of all edges) without  repetitions
+#creating a list of all of the possible edges present in the graph (matrix of all edges) without  repetitions
 #code inspired from Tibebes. M
     
     jac_train = pd.DataFrame(nx.jaccard_coefficient(train_graph, edges_train))

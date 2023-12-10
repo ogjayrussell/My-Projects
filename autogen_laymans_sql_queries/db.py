@@ -57,20 +57,40 @@ class PostgresDatabase:
         return self.cur.fetchall()
 
     #run a sql statement made by llm
-    def run_sql(self, sql_stmt, *params):
-        self.cur.execute(sql_stmt, params)
+    def run_sql(self, sql_stmt):
+        self.cur.execute(sql_stmt)
         return self.cur.fetchall()
 
     #get a table definition in a 'create table' format directly from postgres as a string. Passed to the llm to show what the tables look like
     def get_table_definition(self, table_name):
+        # Query to get column details
         select_stmt = sql.SQL("""
-        SELECT pg_tables.tablename,
-               pg_catalog.pg_get_create_table(pg_tables.tablename::regclass)
-        FROM pg_tables
-        WHERE tablename = %s
+        SELECT column_name, data_type, is_nullable, column_default
+        FROM information_schema.columns
+        WHERE table_name = %s
+        ORDER BY ordinal_position
         """)
         self.cur.execute(select_stmt, (table_name,))
-        return self.cur.fetchone()[1]
+        columns_info = self.cur.fetchall()
+
+        # Start the CREATE TABLE statement
+        create_table_stmt = f"CREATE TABLE {table_name} (\n"
+
+        # Define columns with data types and default values
+        column_definitions = []
+        for column in columns_info:
+            col_def = f"    {column[0]} {column[1]}"
+            if column[3] is not None:  # If there is a default value
+                col_def += f" DEFAULT {column[3]}"
+            if column[2] == 'NO':  # If the column is not nullable
+                col_def += " NOT NULL"
+            column_definitions.append(col_def)
+
+        # Join all column definitions into the statement
+        create_table_stmt += ",\n".join(column_definitions)
+        create_table_stmt += "\n);"
+
+        return create_table_stmt
 
     #list table names in postgres database. to get the table names to call get_table_definition
     def get_all_table_names(self):
