@@ -1,10 +1,13 @@
-# UNFINISHED - Translate colloquial language to a SQL format that can query a database and return the information.
+# UNFINISHED - Translating natural, colloquial language into SQL queries to fetch data
+
+
 
 ### Stack:
 - Postgres sql database
 - AWS
 - HuggingFace
 - Large Language Models
+- API
 
 # Function of the agent:
 1. recieve initial prompt from user - colloqiual
@@ -46,7 +49,7 @@ TABLE_RESPONSE_FORMAT
 prompt_response The following SQL query allows us to retrieve all records from the 'patients' table where the email is a Gmail address, meaning it ends with '@gmail.com'.
 
 ---------
-SELECT * FROM patients WHERE email LIKE '%@gmail.com'
+SELECT * FROM patients WHERE email LIKE '%@gmail.com'<br>
 sql_query SELECT * FROM patients WHERE email LIKE '%@gmail.com'
--------- POSTGRES DATA ANALYTICS AI AGENT RESPONSE ---------
+-------- POSTGRES DATA ANALYTICS AI AGENT RESPONSE ---------<br>
 [(1, 'john.doe@gmail.com', '1234567890', 'John', 'Doe'), (4, 'emily.davis@gmail.com', '4567890123', 'Emily', 'Davis'), (7, 'james.taylor@gmail.com', '7890123456', 'James', 'Taylor'), (8, 'elizabeth.johnson@gmail.com', '8901234567', 'Elizabeth', 'Johnson'), (10, 'susan.clark@gmail.com', '1234567890', 'Susan', 'Clark'), (13, 'richard.thomas@gmail.com', '4567890123', 'Richard', 'Thomas'), (16, 'mary.martin@gmail.com', '7890123456', 'Mary', 'Martin'), (19, 'andrew.lee@gmail.com', '1234567890', 'Andrew', 'Lee')]
