@@ -1,11 +1,10 @@
-# Translate colloquial language to a SQL format that can query a database and return the information.
+# UNFINISHED - Translate colloquial language to a SQL format that can query a database and return the information.
 
 ### Stack:
 - Postgres sql database
 - AWS
 - HuggingFace
-- LLM, AI
-- API
+- Large Language Models
 
 # Function of the agent:
 1. recieve initial prompt from user - colloqiual
@@ -15,6 +14,11 @@
 3. run the modified prompt against the llm
 4. extract the llm's suggested SQL query from it's response
 5. query the database
+
+## TO DO:
+1. Host local LLM on AWS
+2. Fine tune the base model
+3. Replace OpenAI API with 
 
 # Example: "show me the patients with a gmail"
 

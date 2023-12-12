@@ -38,42 +38,42 @@ def main():
         table_definitions = db.get_table_definitions_for_prompt()
         
 
-        #second iteration of prompt that will extract table definitions (structure)
+        #visibility on table definitions (structure)
         prompt = llm.add_cap_ref(
             args.prompt,
-            f"Use these {POSTGRES_TABLE_DEFINITIONS_CAP_REF} to satisfy the database query.",
+            f"Use these {POSTGRES_TABLE_DEFINITIONS_CAP_REF} to satisfy the database query:",
             POSTGRES_TABLE_DEFINITIONS_CAP_REF,
             table_definitions)
         
         # print('prompt v2', prompt)
         
-        #third iteration of prompt that uses the table definitions and devises an SQL query that will answer the user request. Delimiter to make it easy to extract the SQL query.
+        #outlining required formatting to extract the SQL query.
         prompt = llm.add_cap_ref(
             prompt,
-            f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}. Write the relevant information within <>, don't include the <> symbols", 
+            f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}. Insert the relevant information within <>, don't include the <> symbols", 
             TABLE_RESPONSE_FORMAT_CAP_REF,
-            f"""<explanation of the sql query>
-            {SQL_DELIMITER}\n<sql query exclusively as raw text>
+            f"""<insert an explanation of the sql query here>
+            {SQL_DELIMITER}\n<insert sql query exclusively as raw text here>
             """
             )
         
-        print('MODIFIED PROMPT:', prompt)
+        print('1. MODIFIED_PROMPT:', prompt)
 
 
-        #Now that there is a well structured prompt with table definitions as context + understanding of what format is required, the llm will now attempt to respond with SQL terminology 
+        #devise an SQL query that will answer the user request with visibility on TABLE_DEFINITIONS as context. Answer with advised formatting. Delimiter to make it easy to extract the SQL query.
         prompt_response = llm.prompt(prompt)
 
-        print('prompt_response',prompt_response)
+        print('2. PROMPT_RESPONSE:',prompt_response)
 
-        #taking the SQL query from the response
+        #extracting the SQL query from the response
         sql_query = prompt_response.split(SQL_DELIMITER)[1].strip()
 
-        print('sql_query', sql_query)
+        print('3. RUN_SQL_QUERY:', sql_query)
 
         #running the SQL query against the database
         result = db.run_sql(sql_query)
 
-        print('-------- POSTGRES DATA ANALYTICS AI AGENT RESPONSE ---------')
+        print('-------- POSTGRES AI AGENT RESPONSE ---------')
 
         print(result)
 
