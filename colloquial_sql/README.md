@@ -23,10 +23,10 @@
 2. Fine tune the base model
 3. Replace OpenAI API with 
 
-# Example: "show me the patients with a gmail"
+# Example: "what is the email of John Doe?"
 
 ## Output
-MODIFIED PROMPT: show me the patients with a gmail Use these TABLE_DEFINITIONS to satisfy the database query.
+1. MODIFIED_PROMPT: what is the email of John Doe? Use these TABLE_DEFINITIONS to satisfy the database query:
 
 TABLE_DEFINITIONS
 
@@ -36,20 +36,19 @@ CREATE TABLE patients (
     phone character varying,
     first_name character varying,
     last_name character varying
-); 
-
-Respond in this format TABLE_RESPONSE_FORMAT
+); Respond in the format found under TABLE_RESPONSE_FORMAT. Insert the relevant information within <>, don't include the <> symbols, keep the ---------.
 
 TABLE_RESPONSE_FORMAT
 
-<explanation of the sql query>
+<insert an explanation of the sql query as raw text here>
             ---------
-<sql query exclusively as raw text>
+<insert sql query exclusively as raw text here>
             
-prompt_response The following SQL query allows us to retrieve all records from the 'patients' table where the email is a Gmail address, meaning it ends with '@gmail.com'.
+2. PROMPT_RESPONSE: This query selects the email of the patient named "John Doe"
 
----------
-SELECT * FROM patients WHERE email LIKE '%@gmail.com'<br>
-sql_query SELECT * FROM patients WHERE email LIKE '%@gmail.com'
--------- POSTGRES DATA ANALYTICS AI AGENT RESPONSE ---------<br>
-[(1, 'john.doe@gmail.com', '1234567890', 'John', 'Doe'), (4, 'emily.davis@gmail.com', '4567890123', 'Emily', 'Davis'), (7, 'james.taylor@gmail.com', '7890123456', 'James', 'Taylor'), (8, 'elizabeth.johnson@gmail.com', '8901234567', 'Elizabeth', 'Johnson'), (10, 'susan.clark@gmail.com', '1234567890', 'Susan', 'Clark'), (13, 'richard.thomas@gmail.com', '4567890123', 'Richard', 'Thomas'), (16, 'mary.martin@gmail.com', '7890123456', 'Mary', 'Martin'), (19, 'andrew.lee@gmail.com', '1234567890', 'Andrew', 'Lee')]
+            ---------
+SELECT email FROM patients WHERE first_name = 'John' AND last_name = 'Doe'
+            
+3. RUN_SQL_QUERY: SELECT email FROM patients WHERE first_name = 'John' AND last_name = 'Doe'
+-------- POSTGRES AI AGENT RESPONSE ---------
+[('john.doe@gmail.com',)]

@@ -36,7 +36,7 @@ def main():
         db.connect_with_url(DB_URL)
 
         table_definitions = db.get_table_definitions_for_prompt()
-        
+    
 
         #visibility on table definitions (structure)
         prompt = llm.add_cap_ref(
@@ -50,9 +50,9 @@ def main():
         #outlining required formatting to extract the SQL query.
         prompt = llm.add_cap_ref(
             prompt,
-            f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}. Insert the relevant information within <>, don't include the <> symbols", 
+            f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}. Insert the relevant information within <>, don't include the <> symbols, keep the {SQL_DELIMITER}.", 
             TABLE_RESPONSE_FORMAT_CAP_REF,
-            f"""<insert an explanation of the sql query here>
+            f"""<insert an explanation of the sql query as raw text here>
             {SQL_DELIMITER}\n<insert sql query exclusively as raw text here>
             """
             )

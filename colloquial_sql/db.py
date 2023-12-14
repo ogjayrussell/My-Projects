@@ -21,40 +21,40 @@ class PostgresDatabase:
         self.cur = self.conn.cursor()
 
     #insert or update a row in a table if id is present in _dict
-    def upsert(self, table_name, _dict):
-        columns = _dict.keys()
-        values = _dict.values()
+    # def upsert(self, table_name, _dict):
+    #     columns = _dict.keys()
+    #     values = _dict.values()
         
-        upsert_stmt = sql.SQL(
-            "INSERT INTO {} ({}) VALUES ({}) ON CONFLICT (id) DO UPDATE SET {}"
-        ).format(
-            sql.Identifier(table_name),
-            sql.SQL(', ').join(map(sql.Identifier, columns)),
-            sql.SQL(', ').join(sql.Placeholder() * len(values)),
-            sql.SQL(', ').join(
-                [sql.SQL("{} = EXCLUDED.{}").format(sql.Identifier(col), sql.Identifier(col)) for col in columns])
-        )
+    #     upsert_stmt = sql.SQL(
+    #         "INSERT INTO {} ({}) VALUES ({}) ON CONFLICT (id) DO UPDATE SET {}"
+    #     ).format(
+    #         sql.Identifier(table_name),
+    #         sql.SQL(', ').join(map(sql.Identifier, columns)),
+    #         sql.SQL(', ').join(sql.Placeholder() * len(values)),
+    #         sql.SQL(', ').join(
+    #             [sql.SQL("{} = EXCLUDED.{}").format(sql.Identifier(col), sql.Identifier(col)) for col in columns])
+    #     )
         
-        self.cur.execute(upsert_stmt, values)
-        self.conn.commit()
+    #     self.cur.execute(upsert_stmt, values)
+    #     self.conn.commit()
 
     #delete a row in table by id
-    def delete(self, table_name, _id):
-        delete_stmt = sql.SQL("DELETE FROM {} WHERE id = %s").format(sql.Identifier(table_name))
-        self.cur.execute(delete_stmt, (_id,))
-        self.conn.commit()
+    # def delete(self, table_name, _id):
+    #     delete_stmt = sql.SQL("DELETE FROM {} WHERE id = %s").format(sql.Identifier(table_name))
+    #     self.cur.execute(delete_stmt, (_id,))
+    #     self.conn.commit()
 
-    #get a row in a table by id
-    def get(self, table_name, _id):
-        select_stmt = sql.SQL("SELECT * FROM {} WHERE id = %s").format(sql.Identifier(table_name))
-        self.cur.execute(select_stmt, (_id,))
-        return self.cur.fetchone()
+    # #get a row in a table by id
+    # def get(self, table_name, _id):
+    #     select_stmt = sql.SQL("SELECT * FROM {} WHERE id = %s").format(sql.Identifier(table_name))
+    #     self.cur.execute(select_stmt, (_id,))
+    #     return self.cur.fetchone()
 
-    #get all rows in a table
-    def get_all(self, table_name):
-        select_stmt = sql.SQL("SELECT * FROM {}").format(sql.Identifier(table_name))
-        self.cur.execute(select_stmt)
-        return self.cur.fetchall()
+    # #get all rows in a table
+    # def get_all(self, table_name):
+    #     select_stmt = sql.SQL("SELECT * FROM {}").format(sql.Identifier(table_name))
+    #     self.cur.execute(select_stmt)
+    #     return self.cur.fetchall()
 
     #run a sql statement made by llm
     def run_sql(self, sql_stmt):
