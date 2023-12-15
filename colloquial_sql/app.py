@@ -20,12 +20,13 @@ SQL_DELIMITER = "---------"
 
 def main():
     #to accept command line arguments
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--prompt", help="Prompt for the OpenAI API")
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("--prompt", help="Prompt for the OpenAI API")
+    # args = parser.parse_args()
 
     #initial prompt
-    prompt = args.prompt
+    # prompt = args.prompt
+    prompt = 'show me gmail users'
     
     
     with PostgresDatabase() as db:
@@ -40,7 +41,7 @@ def main():
 
         #visibility on table definitions (structure)
         prompt = llm.add_cap_ref(
-            args.prompt,
+            prompt, #args.prompt
             f"Use these {POSTGRES_TABLE_DEFINITIONS_CAP_REF} to satisfy the database query:",
             POSTGRES_TABLE_DEFINITIONS_CAP_REF,
             table_definitions)
