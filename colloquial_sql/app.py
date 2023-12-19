@@ -18,7 +18,7 @@ TABLE_RESPONSE_FORMAT_CAP_REF = "TABLE_RESPONSE_FORMAT"
 
 SQL_DELIMITER = "---------"
 
-def main():
+def main(prompt):
     #to accept command line arguments
     # parser = argparse.ArgumentParser()
     # parser.add_argument("--prompt", help="Prompt for the OpenAI API")
@@ -26,7 +26,10 @@ def main():
 
     #initial prompt
     # prompt = args.prompt
-    prompt = 'show me gmail users'
+
+    prompts_list = pd.read_csv('./data/prompts.csv')
+    
+    prompt = prompt
     
     
     with PostgresDatabase() as db:

@@ -5,10 +5,12 @@
 - AWS
 - HuggingFace
 - OpenAI
-- Large Language Models
 - Fine Tuning
 - Synthetic Data Generation
 - API
+- Qunatization
+- LoRa
+- Transformers
 
 # Function of the agent:
 1. Recieve initial prompt from user - colloqiual
@@ -19,7 +21,7 @@
 4. Extract the llm's suggested SQL query from it's response
 5. Query the database
 
-## Project Workflow:
+# Project Workflow:
 
 ### 1. Establish agent with OpenAI gpt-4
 1. Host a postgres sql database.
@@ -34,7 +36,7 @@
 <br>Develop an evaluation method to test the capabilities of llms pre and post fine-tuning
 
 ### 2. Transfer to local model
-Mistral 7B? 
+Mistral 7B?
 
 5. Instantiate base model (local model)
 6. Fine-tune base model (local model)
