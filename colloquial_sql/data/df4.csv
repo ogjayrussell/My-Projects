@@ -1,0 +1,241 @@
+prompt,response
+"Show me the names of all the employees.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all the employees, we will query the 'Employees' table and select the 'name' column.
+
+---------
+SELECT name FROM Employees;"
+"I need to see the names and ages of all employees.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names and ages of all employees, we need to select the 'name' and 'age' columns from the 'Employees' table.
+
+---------
+SELECT name, age FROM Employees;"
+"Can you show me the names of all the departments?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all the departments, we will query the 'Departments' table and select the 'name' column.
+
+---------
+SELECT name FROM Departments;"
+"I'd like to see the names of all employees who are over 30 years old.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are over 30 years old, we need to select the 'name' column from the 'Employees' table where the 'age' is greater than 30.
+
+---------
+SELECT name FROM Employees WHERE age > 30;"
+"Show me the names of all employees in the 'Marketing' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all employees in the 'Marketing' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the 'name' column where the department 'name' is 'Marketing'.
+
+---------
+SELECT Employees.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Departments.name = 'Marketing';"
+"I need to see the names of all employees who are under 25 years old and work in the 'Sales' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are under 25 years old and work in the 'Sales' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the 'name' column where the 'age' is less than 25 and the department 'name' is 'Sales'.
+
+---------
+SELECT Employees.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Employees.age < 25 AND Departments.name = 'Sales';"
+"Can you show me the names of all departments that have more than 10 employees?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all departments that have more than 10 employees, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we group by the department 'name' and select those departments where the count of employees is more than 10.
+
+---------
+SELECT Departments.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id GROUP BY Departments.name HAVING COUNT(Employees.id) > 10;"
+"I'd like to see the average age of employees in the 'Human Resources' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the average age of employees in the 'Human Resources' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the average of 'age' where the department 'name' is 'Human Resources'.
+
+---------
+SELECT AVG(Employees.age) FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Departments.name = 'Human Resources';"
+"Show me the names of all employees who are older than the average age of employees.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all employees who are older than the average age of employees, we need to select the 'name' from the 'Employees' table where the 'age' is greater than the average 'age' of all employees.
+
+---------
+SELECT name FROM Employees WHERE age > (SELECT AVG(age) FROM Employees);"
+"I need to see the names of all departments that have employees older than 40 years.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all departments that have employees older than 40 years, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select distinct department 'name' where the 'age' is greater than 40.
+
+---------
+SELECT DISTINCT Departments.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Employees.age > 40;"
+"Can you show me the names and ages of all employees, sorted by age in descending order?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names and ages of all employees, sorted by age in descending order, we need to select the 'name' and 'age' from the 'Employees' table and order the results by 'age' in descending order.
+
+---------
+SELECT name, age FROM Employees ORDER BY age DESC;"
+"Can you show me the names of all employees who are in their 20s?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are in their 20s, we need to select the 'name' column from the 'Employees' table where the 'age' is between 20 and 29.
+
+---------
+SELECT name FROM Employees WHERE age BETWEEN 20 AND 29;"
+"Show me the names of all employees who are not in the 'Finance' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all employees who are not in the 'Finance' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the 'name' column where the department 'name' is not 'Finance'.
+
+---------
+SELECT Employees.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Departments.name != 'Finance';"
+"Can you show me the names of all departments that have employees younger than 20 years?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all departments that have employees younger than 20 years, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select distinct department 'name' where the 'age' is less than 20.
+
+---------
+SELECT DISTINCT Departments.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Employees.age < 20;"
+"I'd like to see the names of all employees who are 30 years old or younger.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are 30 years old or younger, we need to select the 'name' column from the 'Employees' table where the 'age' is less than or equal to 30.
+
+---------
+SELECT name FROM Employees WHERE age <= 30;"

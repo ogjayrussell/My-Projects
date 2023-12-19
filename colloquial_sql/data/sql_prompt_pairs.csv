@@ -1,0 +1,676 @@
+prompt,response
+"Show me the names of all the employees.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the names of all the employees, we will select the 'name' column from the 'employees' table.
+
+---------
+SELECT name FROM employees;"
+"I want to know the highest salary in the company.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find the highest salary in the company, we will select the maximum value from the 'salary' column in the 'employees' table.
+
+---------
+SELECT MAX(salary) FROM employees;"
+"Can you tell me how many employees work in each department?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To find out how many employees work in each department, we will count the number of employees in the 'employees' table grouped by the 'department_id' column. Then we will join this with the 'departments' table to get the department names.
+
+---------
+SELECT d.name, COUNT(e.id) 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+GROUP BY d.name;"
+"I need to know the average salary of employees in each department.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To find out the average salary of employees in each department, we will calculate the average of the 'salary' column in the 'employees' table grouped by the 'department_id' column. Then we will join this with the 'departments' table to get the department names.
+
+---------
+SELECT d.name, AVG(e.salary) 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+GROUP BY d.name;"
+"Show me the details of the employee with the highest salary.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the details of the employee with the highest salary, we will select all columns from the 'employees' table where the 'salary' is equal to the maximum salary in the table.
+
+---------
+SELECT * FROM employees WHERE salary = (SELECT MAX(salary) FROM employees);"
+"I want to see the names and positions of all employees who earn more than 5000.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the names and positions of all employees who earn more than 5000, we will select the 'name' and 'position' columns from the 'employees' table where the 'salary' is greater than 5000.
+
+---------
+SELECT name, position FROM employees WHERE salary > 5000;"
+"Can you show me the names of all the departments?
+
+TABLE_DEFINITIONS
+
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To get the names of all the departments, we will select the 'name' column from the 'departments' table.
+
+---------
+SELECT name FROM departments;"
+"I want to know how many employees earn less than 3000.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find out how many employees earn less than 3000, we will count the number of rows in the 'employees' table where the 'salary' is less than 3000.
+
+---------
+SELECT COUNT(*) FROM employees WHERE salary < 3000;"
+"Show me the details of employees who are managers.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the details of employees who are managers, we will select all columns from the 'employees' table where the 'position' is 'manager'.
+
+---------
+SELECT * FROM employees WHERE position = 'manager';"
+"I need to know the lowest salary in the company.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find the lowest salary in the company, we will select the minimum value from the 'salary' column in the 'employees' table.
+
+---------
+SELECT MIN(salary) FROM employees;"
+"Can you tell me the total salary expense of the company?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find out the total salary expense of the company, we will sum up all the values in the 'salary' column in the 'employees' table.
+
+---------
+SELECT SUM(salary) FROM employees;"
+"Show me the average salary of employees in each department.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To find the average salary of employees in each department, we will calculate the average of the 'salary' column in the 'employees' table grouped by the 'department_id' column. Then we will join this with the 'departments' table to get the department names.
+
+---------
+SELECT d.name, AVG(e.salary) 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+GROUP BY d.name;"
+"Can you show me the names of all the employees who earn more than 5000?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the names of all the employees who earn more than 5000, we will select the 'name' column from the 'employees' table where the 'salary' is greater than 5000.
+
+---------
+SELECT name FROM employees WHERE salary > 5000;"
+"Show me the details of the employee with the lowest salary.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the details of the employee with the lowest salary, we will select all columns from the 'employees' table where the 'salary' is equal to the minimum salary in the table.
+
+---------
+SELECT * FROM employees WHERE salary = (SELECT MIN(salary) FROM employees);"
+"Can you tell me the total number of employees in the company?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find out the total number of employees in the company, we will count the number of rows in the 'employees' table.
+
+---------
+SELECT COUNT(*) FROM employees;"
+"Show me the names of employees who work in the 'Sales' department.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To get the names of employees who work in the 'Sales' department, we will select the 'name' column from the 'employees' table where the 'department_id' matches the id of the 'Sales' department in the 'departments' table.
+
+---------
+SELECT e.name 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+WHERE d.name = 'Sales';"
+"Show me the names of all the employees.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'name' column from the 'employees' table, which contains the names of all employees.
+---------
+SELECT name FROM employees;"
+"I want to know the salaries of all the employees in the marketing department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'salary' column where the 'name' column in the 'departments' table is 'marketing'.
+---------
+SELECT employees.salary FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'marketing';"
+"Can you show me the positions and salaries of employees who earn more than 50000?
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'position' and 'salary' columns from the 'employees' table where the 'salary' is greater than 50000.
+---------
+SELECT position, salary FROM employees WHERE salary > 50000;"
+"I need to see the names and positions of all employees in the HR department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'name' and 'position' columns where the 'name' column in the 'departments' table is 'HR'.
+---------
+SELECT employees.name, employees.position FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'HR';"
+"Show me the highest salary in the finance department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the maximum value of the 'salary' column where the 'name' column in the 'departments' table is 'finance'.
+---------
+SELECT MAX(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'finance';"
+"I want to know the average salary of employees in the sales department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the average value of the 'salary' column where the 'name' column in the 'departments' table is 'sales'.
+---------
+SELECT AVG(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'sales';"
+"Show me the total salary expense for the IT department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the sum of the 'salary' column where the 'name' column in the 'departments' table is 'IT'.
+---------
+SELECT SUM(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'IT';"
+"I need to see the names of all employees who are managers.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'name' column from the 'employees' table where the 'position' is 'manager'.
+---------
+SELECT name FROM employees WHERE position = 'manager';"
+"Show me the names of employees who earn less than 30000.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'name' column from the 'employees' table where the 'salary' is less than 30000.
+---------
+SELECT name FROM employees WHERE salary < 30000;"
+"Can you show me the positions and salaries of employees who earn between 40000 and 60000?
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'position' and 'salary' columns from the 'employees' table where the 'salary' is between 40000 and 60000.
+---------
+SELECT position, salary FROM employees WHERE salary BETWEEN 40000 AND 60000;"
+"I want to see the number of employees in each department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then group by the 'name' column in the 'departments' table and count the number of employees in each department.
+---------
+SELECT departments.name, COUNT(employees.id) FROM employees JOIN departments ON employees.department_id = departments.id GROUP BY departments.name;"
+"I want to see the names and positions of all employees in the finance department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'name' and 'position' columns where the 'name' column in the 'departments' table is 'finance'.
+---------
+SELECT employees.name, employees.position FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'finance';"
+"Show me the highest salary in the HR department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the maximum value of the 'salary' column where the 'name' column in the 'departments' table is 'HR'.
+---------
+SELECT MAX(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'HR';"
+"Show me the names of all the employees in the IT department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'name' column where the 'name' column in the 'departments' table is 'IT'.
+---------
+SELECT employees.name FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'IT';"
+"I want to know the total salary expense for the IT department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the sum of the 'salary' column where the 'name' column in the 'departments' table is 'IT'.
+---------
+SELECT SUM(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'IT';"
+"Show me the latest purchase from the customers.
+
+TABLE_DEFINITIONS
+
+Customers: id (integer), name (text), email (text), created_at (timestamp)
+Purchases: id (integer), customer_id (integer), product_id (integer), purchase_date (timestamp), amount (decimal)","To get the latest purchase from the customers, we will join the Customers and Purchases tables on customer_id. Then, we will sort the purchases by purchase_date in descending order and limit the results to the most recent one.
+            ---------
+SELECT Customers.*, Purchases.*
+FROM Customers
+INNER JOIN Purchases ON Customers.id = Purchases.customer_id
+ORDER BY Purchases.purchase_date DESC
+LIMIT 1;"
+"I need to know the total sales for product 123.
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)
+Sales: id (integer), product_id (integer), quantity_sold (integer), sale_date (timestamp)","To calculate the total sales for product 123, we will sum the quantity_sold from the Sales table where the product_id is 123.
+            ---------
+SELECT SUM(quantity_sold) as total_sales
+FROM Sales
+WHERE product_id = 123;"
+"Can you find me the average rating for the movie ""Inception""?
+
+TABLE_DEFINITIONS
+
+Movies: id (integer), title (text), release_date (timestamp)
+Ratings: id (integer), movie_id (integer), rating (decimal), rated_at (timestamp)","To find the average rating for the movie ""Inception"", we will first find the id of the movie from the Movies table. Then, we will average the ratings from the Ratings table where the movie_id matches the id of ""Inception"".
+            ---------
+SELECT AVG(rating) as average_rating
+FROM Ratings
+WHERE movie_id = (SELECT id FROM Movies WHERE title = 'Inception');"
+"Show me the details of the employee who has the highest salary.
+
+TABLE_DEFINITIONS
+
+Employees: id (integer), name (text), position (text), hire_date (timestamp)
+Salaries: id (integer), employee_id (integer), salary (decimal), effective_date (timestamp)","To get the details of the employee who has the highest salary, we will join the Employees and Salaries tables on employee_id. Then, we will sort the results by salary in descending order and limit the results to the one with the highest salary.
+            ---------
+SELECT Employees.*
+FROM Employees
+INNER JOIN Salaries ON Employees.id = Salaries.employee_id
+ORDER BY Salaries.salary DESC
+LIMIT 1;"
+"Find me the total number of books sold by author ""J.K. Rowling"".
+
+TABLE_DEFINITIONS
+
+Books: id (integer), title (text), author (text), published_date (timestamp)
+Sales: id (integer), book_id (integer), quantity_sold (integer), sale_date (timestamp)","To find the total number of books sold by author ""J.K. Rowling"", we will first get the ids of the books written by her from the Books table. Then, we will sum the quantity_sold from the Sales table where the book_id matches those of ""J.K. Rowling""'s books.
+            ---------
+SELECT SUM(quantity_sold) as total_books_sold
+FROM Sales
+WHERE book_id IN (SELECT id FROM Books WHERE author = 'J.K. Rowling');"
+"I need to know the total revenue generated by the product named ""iPhone"".
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)
+Sales: id (integer), product_id (integer), quantity_sold (integer), sale_date (timestamp)","To calculate the total revenue generated by the product named ""iPhone"", we will first get the price of the ""iPhone"" from the Products table. Then, we will sum the product of the price and quantity_sold from the Sales table where the product_id matches that of the ""iPhone"".
+            ---------
+SELECT SUM(Products.price * Sales.quantity_sold) as total_revenue
+FROM Sales
+INNER JOIN Products ON Sales.product_id = Products.id
+WHERE Products.name = 'iPhone';"
+"Show me the most popular product based on the number of sales.
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)
+Sales: id (integer), product_id (integer), quantity_sold (integer), sale_date (timestamp)","To find the most popular product based on the number of sales, we will sum the quantity_sold from the Sales table for each product_id. Then, we will sort the results in descending order and limit the results to the one with the highest quantity_sold. Finally, we will join this result with the Products table to get the product details.
+            ---------
+SELECT Products.*, SUM(Sales.quantity_sold) as total_sold
+FROM Sales
+INNER JOIN Products ON Sales.product_id = Products.id
+GROUP BY Products.id
+ORDER BY total_sold DESC
+LIMIT 1;"
+"Find me the customer who made the most purchases.
+
+TABLE_DEFINITIONS
+
+Customers: id (integer), name (text), email (text), created_at (timestamp)
+Purchases: id (integer), customer_id (integer), product_id (integer), purchase_date (timestamp), amount (decimal)","To find the customer who made the most purchases, we will count the number of purchases from the Purchases table for each customer_id. Then, we will sort the results in descending order and limit the results to the one with the highest count. Finally, we will join this result with the Customers table to get the customer details.
+            ---------
+SELECT Customers.*, COUNT(Purchases.id) as total_purchases
+FROM Purchases
+INNER JOIN Customers ON Purchases.customer_id = Customers.id
+GROUP BY Customers.id
+ORDER BY total_purchases DESC
+LIMIT 1;"
+"Show me the details of the most expensive product.
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)","To get the details of the most expensive product, we will sort the products by price in descending order and limit the results to the one with the highest price.
+            ---------
+SELECT *
+FROM Products
+ORDER BY price DESC
+LIMIT 1;"
+"I need to know the total sales for each product.
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)
+Sales: id (integer), product_id (integer), quantity_sold (integer), sale_date (timestamp)","To calculate the total sales for each product, we will sum the quantity_sold from the Sales table for each product_id. Then, we will join this result with the Products table to get the product details.
+            ---------
+SELECT Products.*, SUM(Sales.quantity_sold) as total_sales
+FROM Sales
+INNER JOIN Products ON Sales.product_id = Products.id
+GROUP BY Products.id;"
+"Show me the total revenue generated by each product.
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)
+Sales: id (integer), product_id (integer), quantity_sold (integer), sale_date (timestamp)","To calculate the total revenue generated by each product, we will sum the product of the price and quantity_sold from the Sales table for each product_id. Then, we will join this result with the Products table to get the product details.
+            ---------
+SELECT Products.*, SUM(Products.price * Sales.quantity_sold) as total_revenue
+FROM Sales
+INNER JOIN Products ON Sales.product_id = Products.id
+GROUP BY Products.id;"
+"Show me the details of the customer who spent the most.
+
+TABLE_DEFINITIONS
+
+Customers: id (integer), name (text), email (text), created_at (timestamp)
+Purchases: id (integer), customer_id (integer), product_id (integer), purchase_date (timestamp), amount (decimal)","To find the customer who spent the most, we will sum the amount from the Purchases table for each customer_id. Then, we will sort the results in descending order and limit the results to the one with the highest sum. Finally, we will join this result with the Customers table to get the customer details.
+            ---------
+SELECT Customers.*, SUM(Purchases.amount) as total_spent
+FROM Purchases
+INNER JOIN Customers ON Purchases.customer_id = Customers.id
+GROUP BY Customers.id
+ORDER BY total_spent DESC
+LIMIT 1;"
+"Show me the details of the most frequently purchased product.
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)
+Purchases: id (integer), customer_id (integer), product_id (integer), purchase_date (timestamp), amount (decimal)","To find the most frequently purchased product, we will count the number of purchases from the Purchases table for each product_id. Then, we will sort the results in descending order and limit the results to the one with the highest count. Finally, we will join this result with the Products table to get the product details.
+            ---------
+SELECT Products.*, COUNT(Purchases.id) as total_purchases
+FROM Purchases
+INNER JOIN Products ON Purchases.product_id = Products.id
+GROUP BY Products.id
+ORDER BY total_purchases DESC
+LIMIT 1;"
+"Show me the total revenue generated by each product in the last month.
+
+TABLE_DEFINITIONS
+
+Products: id (integer), name (text), price (decimal), created_at (timestamp)
+Sales: id (integer), product_id (integer), quantity_sold (integer), sale_date (timestamp)","To calculate the total revenue generated by each product in the last month, we will sum the product of the price and quantity_sold from the Sales table for each product_id where the sale_date is within the last month. Then, we will join this result with the Products table to get the product details.
+            ---------
+SELECT Products.*, SUM(Products.price * Sales.quantity_sold) as total_revenue
+FROM Sales
+INNER JOIN Products ON Sales.product_id = Products.id
+WHERE Sales.sale_date >= (CURRENT_DATE - INTERVAL '1 month')
+GROUP BY Products.id;"
+"I need to know the total sales for the book titled ""Harry Potter"".
+
+TABLE_DEFINITIONS
+
+Books: id (integer), title (text), author (text), published_date (timestamp)
+Sales: id (integer), book_id (integer), quantity_sold (integer), sale_date (timestamp)","To calculate the total sales for the book titled ""Harry Potter"", we will sum the quantity_sold from the Sales table where the book_id matches that of ""Harry Potter"".
+            ---------
+SELECT SUM(quantity_sold) as total_sales
+FROM Sales
+WHERE book_id = (SELECT id FROM Books WHERE title = 'Harry Potter');"
+"Show me the names of all the employees.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all the employees, we will query the 'Employees' table and select the 'name' column.
+
+---------
+SELECT name FROM Employees;"
+"I need to see the names and ages of all employees.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names and ages of all employees, we need to select the 'name' and 'age' columns from the 'Employees' table.
+
+---------
+SELECT name, age FROM Employees;"
+"Can you show me the names of all the departments?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all the departments, we will query the 'Departments' table and select the 'name' column.
+
+---------
+SELECT name FROM Departments;"
+"I'd like to see the names of all employees who are over 30 years old.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are over 30 years old, we need to select the 'name' column from the 'Employees' table where the 'age' is greater than 30.
+
+---------
+SELECT name FROM Employees WHERE age > 30;"
+"Show me the names of all employees in the 'Marketing' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all employees in the 'Marketing' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the 'name' column where the department 'name' is 'Marketing'.
+
+---------
+SELECT Employees.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Departments.name = 'Marketing';"
+"I need to see the names of all employees who are under 25 years old and work in the 'Sales' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are under 25 years old and work in the 'Sales' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the 'name' column where the 'age' is less than 25 and the department 'name' is 'Sales'.
+
+---------
+SELECT Employees.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Employees.age < 25 AND Departments.name = 'Sales';"
+"Can you show me the names of all departments that have more than 10 employees?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all departments that have more than 10 employees, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we group by the department 'name' and select those departments where the count of employees is more than 10.
+
+---------
+SELECT Departments.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id GROUP BY Departments.name HAVING COUNT(Employees.id) > 10;"
+"I'd like to see the average age of employees in the 'Human Resources' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the average age of employees in the 'Human Resources' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the average of 'age' where the department 'name' is 'Human Resources'.
+
+---------
+SELECT AVG(Employees.age) FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Departments.name = 'Human Resources';"
+"Show me the names of all employees who are older than the average age of employees.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all employees who are older than the average age of employees, we need to select the 'name' from the 'Employees' table where the 'age' is greater than the average 'age' of all employees.
+
+---------
+SELECT name FROM Employees WHERE age > (SELECT AVG(age) FROM Employees);"
+"I need to see the names of all departments that have employees older than 40 years.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all departments that have employees older than 40 years, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select distinct department 'name' where the 'age' is greater than 40.
+
+---------
+SELECT DISTINCT Departments.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Employees.age > 40;"
+"Can you show me the names and ages of all employees, sorted by age in descending order?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names and ages of all employees, sorted by age in descending order, we need to select the 'name' and 'age' from the 'Employees' table and order the results by 'age' in descending order.
+
+---------
+SELECT name, age FROM Employees ORDER BY age DESC;"
+"Can you show me the names of all employees who are in their 20s?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are in their 20s, we need to select the 'name' column from the 'Employees' table where the 'age' is between 20 and 29.
+
+---------
+SELECT name FROM Employees WHERE age BETWEEN 20 AND 29;"
+"Show me the names of all employees who are not in the 'Finance' department.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To get the names of all employees who are not in the 'Finance' department, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select the 'name' column where the department 'name' is not 'Finance'.
+
+---------
+SELECT Employees.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Departments.name != 'Finance';"
+"Can you show me the names of all departments that have employees younger than 20 years?
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all departments that have employees younger than 20 years, we need to join the 'Employees' and 'Departments' tables on the 'id' and 'department_id' columns respectively. Then, we select distinct department 'name' where the 'age' is less than 20.
+
+---------
+SELECT DISTINCT Departments.name FROM Employees JOIN Departments ON Employees.department_id = Departments.id WHERE Employees.age < 20;"
+"I'd like to see the names of all employees who are 30 years old or younger.
+
+TABLE_DEFINITIONS
+
+Employees:
+id (integer)
+name (text)
+age (integer)
+department_id (integer)
+
+Departments:
+id (integer)
+name (text)","To fetch the names of all employees who are 30 years old or younger, we need to select the 'name' column from the 'Employees' table where the 'age' is less than or equal to 30.
+
+---------
+SELECT name FROM Employees WHERE age <= 30;"

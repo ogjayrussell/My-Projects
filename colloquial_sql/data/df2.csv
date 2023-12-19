@@ -1,0 +1,121 @@
+prompt,response
+"Show me the names of all the employees.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'name' column from the 'employees' table, which contains the names of all employees.
+---------
+SELECT name FROM employees;"
+"I want to know the salaries of all the employees in the marketing department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'salary' column where the 'name' column in the 'departments' table is 'marketing'.
+---------
+SELECT employees.salary FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'marketing';"
+"Can you show me the positions and salaries of employees who earn more than 50000?
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'position' and 'salary' columns from the 'employees' table where the 'salary' is greater than 50000.
+---------
+SELECT position, salary FROM employees WHERE salary > 50000;"
+"I need to see the names and positions of all employees in the HR department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'name' and 'position' columns where the 'name' column in the 'departments' table is 'HR'.
+---------
+SELECT employees.name, employees.position FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'HR';"
+"Show me the highest salary in the finance department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the maximum value of the 'salary' column where the 'name' column in the 'departments' table is 'finance'.
+---------
+SELECT MAX(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'finance';"
+"I want to know the average salary of employees in the sales department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the average value of the 'salary' column where the 'name' column in the 'departments' table is 'sales'.
+---------
+SELECT AVG(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'sales';"
+"Show me the total salary expense for the IT department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the sum of the 'salary' column where the 'name' column in the 'departments' table is 'IT'.
+---------
+SELECT SUM(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'IT';"
+"I need to see the names of all employees who are managers.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'name' column from the 'employees' table where the 'position' is 'manager'.
+---------
+SELECT name FROM employees WHERE position = 'manager';"
+"Show me the names of employees who earn less than 30000.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'name' column from the 'employees' table where the 'salary' is less than 30000.
+---------
+SELECT name FROM employees WHERE salary < 30000;"
+"Can you show me the positions and salaries of employees who earn between 40000 and 60000?
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will select the 'position' and 'salary' columns from the 'employees' table where the 'salary' is between 40000 and 60000.
+---------
+SELECT position, salary FROM employees WHERE salary BETWEEN 40000 AND 60000;"
+"I want to see the number of employees in each department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then group by the 'name' column in the 'departments' table and count the number of employees in each department.
+---------
+SELECT departments.name, COUNT(employees.id) FROM employees JOIN departments ON employees.department_id = departments.id GROUP BY departments.name;"
+"I want to see the names and positions of all employees in the finance department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'name' and 'position' columns where the 'name' column in the 'departments' table is 'finance'.
+---------
+SELECT employees.name, employees.position FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'finance';"
+"Show me the highest salary in the HR department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the maximum value of the 'salary' column where the 'name' column in the 'departments' table is 'HR'.
+---------
+SELECT MAX(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'HR';"
+"Show me the names of all the employees in the IT department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the 'name' column where the 'name' column in the 'departments' table is 'IT'.
+---------
+SELECT employees.name FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'IT';"
+"I want to know the total salary expense for the IT department.
+
+TABLE_DEFINITIONS
+
+employees: id (integer), name (text), position (text), salary (integer), department_id (integer)
+departments: id (integer), name (text)","This query will join the 'employees' and 'departments' tables on the 'id' column of the 'departments' table and the 'department_id' column of the 'employees' table. It will then select the sum of the 'salary' column where the 'name' column in the 'departments' table is 'IT'.
+---------
+SELECT SUM(employees.salary) FROM employees JOIN departments ON employees.department_id = departments.id WHERE departments.name = 'IT';"

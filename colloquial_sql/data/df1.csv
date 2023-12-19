@@ -1,0 +1,145 @@
+prompt,response
+"Show me the names of all the employees.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the names of all the employees, we will select the 'name' column from the 'employees' table.
+
+---------
+SELECT name FROM employees;"
+"I want to know the highest salary in the company.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find the highest salary in the company, we will select the maximum value from the 'salary' column in the 'employees' table.
+
+---------
+SELECT MAX(salary) FROM employees;"
+"Can you tell me how many employees work in each department?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To find out how many employees work in each department, we will count the number of employees in the 'employees' table grouped by the 'department_id' column. Then we will join this with the 'departments' table to get the department names.
+
+---------
+SELECT d.name, COUNT(e.id) 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+GROUP BY d.name;"
+"I need to know the average salary of employees in each department.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To find out the average salary of employees in each department, we will calculate the average of the 'salary' column in the 'employees' table grouped by the 'department_id' column. Then we will join this with the 'departments' table to get the department names.
+
+---------
+SELECT d.name, AVG(e.salary) 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+GROUP BY d.name;"
+"Show me the details of the employee with the highest salary.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the details of the employee with the highest salary, we will select all columns from the 'employees' table where the 'salary' is equal to the maximum salary in the table.
+
+---------
+SELECT * FROM employees WHERE salary = (SELECT MAX(salary) FROM employees);"
+"I want to see the names and positions of all employees who earn more than 5000.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the names and positions of all employees who earn more than 5000, we will select the 'name' and 'position' columns from the 'employees' table where the 'salary' is greater than 5000.
+
+---------
+SELECT name, position FROM employees WHERE salary > 5000;"
+"Can you show me the names of all the departments?
+
+TABLE_DEFINITIONS
+
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To get the names of all the departments, we will select the 'name' column from the 'departments' table.
+
+---------
+SELECT name FROM departments;"
+"I want to know how many employees earn less than 3000.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find out how many employees earn less than 3000, we will count the number of rows in the 'employees' table where the 'salary' is less than 3000.
+
+---------
+SELECT COUNT(*) FROM employees WHERE salary < 3000;"
+"Show me the details of employees who are managers.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the details of employees who are managers, we will select all columns from the 'employees' table where the 'position' is 'manager'.
+
+---------
+SELECT * FROM employees WHERE position = 'manager';"
+"I need to know the lowest salary in the company.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find the lowest salary in the company, we will select the minimum value from the 'salary' column in the 'employees' table.
+
+---------
+SELECT MIN(salary) FROM employees;"
+"Can you tell me the total salary expense of the company?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find out the total salary expense of the company, we will sum up all the values in the 'salary' column in the 'employees' table.
+
+---------
+SELECT SUM(salary) FROM employees;"
+"Show me the average salary of employees in each department.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To find the average salary of employees in each department, we will calculate the average of the 'salary' column in the 'employees' table grouped by the 'department_id' column. Then we will join this with the 'departments' table to get the department names.
+
+---------
+SELECT d.name, AVG(e.salary) 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+GROUP BY d.name;"
+"Can you show me the names of all the employees who earn more than 5000?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the names of all the employees who earn more than 5000, we will select the 'name' column from the 'employees' table where the 'salary' is greater than 5000.
+
+---------
+SELECT name FROM employees WHERE salary > 5000;"
+"Show me the details of the employee with the lowest salary.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To get the details of the employee with the lowest salary, we will select all columns from the 'employees' table where the 'salary' is equal to the minimum salary in the table.
+
+---------
+SELECT * FROM employees WHERE salary = (SELECT MIN(salary) FROM employees);"
+"Can you tell me the total number of employees in the company?
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))","To find out the total number of employees in the company, we will count the number of rows in the 'employees' table.
+
+---------
+SELECT COUNT(*) FROM employees;"
+"Show me the names of employees who work in the 'Sales' department.
+
+TABLE_DEFINITIONS
+
+employees(id SERIAL PRIMARY KEY, name VARCHAR(100), position VARCHAR(50), salary NUMERIC(10,2), department_id INTEGER REFERENCES departments(id))
+departments(id SERIAL PRIMARY KEY, name VARCHAR(50))","To get the names of employees who work in the 'Sales' department, we will select the 'name' column from the 'employees' table where the 'department_id' matches the id of the 'Sales' department in the 'departments' table.
+
+---------
+SELECT e.name 
+FROM employees e 
+JOIN departments d ON e.department_id = d.id 
+WHERE d.name = 'Sales';"
