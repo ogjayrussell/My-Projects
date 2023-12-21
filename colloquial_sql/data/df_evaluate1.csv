@@ -1,0 +1,16 @@
+prompt,response
+I need to know the number of patients in the database.,SELECT COUNT(*) FROM patients;
+Can you show me all the patients' email addresses?,SELECT email FROM patients;
+I want to find out the number of visits for each patient.,"SELECT patient_id, number_of_visits FROM clinic_info;"
+Find the last visit date for each patient.,"SELECT patient_id, last_visit_date FROM clinic_info;"
+I need to get the phone numbers of all the patients.,SELECT phone FROM patients;
+Show me the first and last names of all the patients.,"SELECT first_name, last_name FROM patients;"
+I want to know the date of registration for each patient.,"SELECT patient_id, date_of_registration FROM clinic_info;"
+Find the medical record number for each patient.,"SELECT patient_id, medical_record_number FROM clinic_info;"
+Can you show me the full details of all the patients?,SELECT * FROM patients;
+I need to know the full clinic information for each patient.,SELECT * FROM clinic_info;
+Can you find the patients who have visited the clinic more than 5 times?,SELECT patient_id FROM clinic_info WHERE number_of_visits > 5;
+I need to find out the last visit date for each patient.,"SELECT patient_id, last_visit_date FROM clinic_info;"
+Can you show me the patients who have visited the clinic in the last 30 days?,SELECT patient_id FROM clinic_info WHERE last_visit_date >= (CURRENT_DATE - INTERVAL '30 days');
+I need to know the total number of visits for each patient.,"SELECT patient_id, number_of_visits FROM clinic_info;"
+I want to know the medical record number for each patient.,"SELECT patient_id, medical_record_number FROM clinic_info;"

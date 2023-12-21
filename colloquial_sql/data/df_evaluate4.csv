@@ -1,0 +1,22 @@
+prompt,response
+Can you provide me with the email of a patient named John Doe?,SELECT email FROM patients WHERE first_name = 'John' AND last_name = 'Doe';
+Can you tell me the date of registration for a patient with the email johndoe@example.com?,SELECT date_of_registration FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'johndoe@example.com');
+I need to know the last visit date for a patient named Jane Smith.,SELECT last_visit_date FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Jane' AND last_name = 'Smith');
+How many visits has a patient with the email address janedoe@example.com made?,SELECT number_of_visits FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'janedoe@example.com');
+Can you provide the medical record number for a patient named Robert Johnson?,SELECT medical_record_number FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Robert' AND last_name = 'Johnson');
+I need to know the phone number of a patient with the email address robertjohnson@example.com.,SELECT phone FROM patients WHERE email = 'robertjohnson@example.com';
+Can you tell me the date of registration for a patient named Emily Davis?,SELECT date_of_registration FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Emily' AND last_name = 'Davis');
+I need to know the last visit date for a patient with the email address emilydavis@example.com.,SELECT last_visit_date FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'emilydavis@example.com');
+How many visits has a patient named William Brown made?,SELECT number_of_visits FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'William' AND last_name = 'Brown');
+Can you provide the medical record number for a patient with the email address williambrown@example.com?,SELECT medical_record_number FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'williambrown@example.com');
+I need to know the phone number of a patient named Elizabeth Taylor.,SELECT phone FROM patients WHERE first_name = 'Elizabeth' AND last_name = 'Taylor';
+I need to know the date of registration for a patient named Robert Johnson.,SELECT date_of_registration FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Robert' AND last_name = 'Johnson');
+Can you provide me with the last visit date for a patient with the email address emilydavis@example.com?,SELECT last_visit_date FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'emilydavis@example.com');
+Can you provide me with the medical record number of a patient named Robert Johnson?,SELECT medical_record_number FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Robert' AND last_name = 'Johnson');
+I need to know the number of visits for a patient with the email address williambrown@example.com.,SELECT number_of_visits FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'williambrown@example.com');
+Can you provide me with the last visit date for a patient named Emily Davis?,SELECT last_visit_date FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Emily' AND last_name = 'Davis');
+I need to know the date of registration for a patient with the email address emilydavis@example.com.,SELECT date_of_registration FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'emilydavis@example.com');
+I need to know the last visit date for a patient with the email address robertjohnson@example.com.,SELECT last_visit_date FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE email = 'robertjohnson@example.com');
+Can you provide me with the date of registration for a patient named Emily Davis?,SELECT date_of_registration FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Emily' AND last_name = 'Davis');
+Can you provide me with the medical record number for a patient named Emily Davis?,SELECT medical_record_number FROM clinic_info WHERE patient_id = (SELECT id FROM patients WHERE first_name = 'Emily' AND last_name = 'Davis');
+Can you provide the phone number for a patient named Emily Davis?,SELECT phone FROM patients WHERE first_name = 'Emily' AND last_name = 'Davis';

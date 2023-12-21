@@ -42,6 +42,10 @@ Mistral 7B?
 6. Fine-tune base model (local model)
 7. Evaluation (local model)
 
+# Postgres databases
+![patients]('./assets/patients.png')
+![clinic_info]('./assets/clinic_info.png')
+
 # Example: "what is the email of John Doe?"
 
 ## Output

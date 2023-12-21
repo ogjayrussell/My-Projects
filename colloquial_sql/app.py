@@ -18,18 +18,15 @@ TABLE_RESPONSE_FORMAT_CAP_REF = "TABLE_RESPONSE_FORMAT"
 
 SQL_DELIMITER = "---------"
 
-def main(prompt):
+#prompt into main for evalutation
+def main():
     #to accept command line arguments
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("--prompt", help="Prompt for the OpenAI API")
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--prompt", help="Prompt for the OpenAI API")
+    args = parser.parse_args()
 
     #initial prompt
-    # prompt = args.prompt
-
-    prompts_list = pd.read_csv('./data/prompts.csv')
-    
-    prompt = prompt
+    prompt = args.prompt
     
     
     with PostgresDatabase() as db:
@@ -54,10 +51,10 @@ def main(prompt):
         #outlining required formatting to extract the SQL query.
         prompt = llm.add_cap_ref(
             prompt,
-            f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}. Insert the relevant information within <>, don't include the <> symbols, keep the {SQL_DELIMITER}.", 
+            f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}.", 
             TABLE_RESPONSE_FORMAT_CAP_REF,
-            f"""<insert an explanation of the sql query as raw text here>
-            {SQL_DELIMITER}\n<insert sql query exclusively as raw text here>
+            f"""$insert an explanation of the sql query as raw text here
+            {SQL_DELIMITER}\n$insert sql query exclusively as raw text here
             """
             )
         

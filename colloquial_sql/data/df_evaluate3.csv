@@ -1,0 +1,16 @@
+prompt,response
+Can you provide me with the email addresses of all patients?,SELECT email FROM patients;
+Can you show me the names of all patients?,"SELECT first_name, last_name FROM patients;"
+Could you find the total number of patients in the database?,SELECT COUNT(id) FROM patients;
+Can you find out how many visits each patient has made?,"SELECT patient_id, number_of_visits FROM clinic_info;"
+Can you provide the last visit date for each patient?,"SELECT patient_id, last_visit_date FROM clinic_info;"
+Could you find out the patients who have visited more than 10 times?,SELECT patient_id FROM clinic_info WHERE number_of_visits > 10;
+Can you find the patients who have never visited the clinic?,SELECT patient_id FROM clinic_info WHERE number_of_visits = 0;
+Can you provide the medical record number for each patient?,"SELECT patient_id, medical_record_number FROM clinic_info;"
+Could you find out the patients who registered in the clinic this year?,SELECT patient_id FROM clinic_info WHERE EXTRACT(YEAR FROM date_of_registration) = EXTRACT(YEAR FROM CURRENT_DATE);
+Can you find out the patients who have not visited the clinic in the last year?,SELECT patient_id FROM clinic_info WHERE last_visit_date < (CURRENT_DATE - INTERVAL '1 year');
+Could you find the patients who have visited the clinic more than 5 times but have not visited in the last 6 months?,SELECT patient_id FROM clinic_info WHERE number_of_visits > 5 AND last_visit_date < (CURRENT_DATE - INTERVAL '6 months');
+Can you find out the patients who registered in the clinic in the last month?,SELECT patient_id FROM clinic_info WHERE date_of_registration >= (CURRENT_DATE - INTERVAL '1 month');
+Can you find out the patients who have never visited the clinic?,SELECT patient_id FROM clinic_info WHERE number_of_visits = 0;
+Can you find out the patients who have visited the clinic more than 10 times?,SELECT patient_id FROM clinic_info WHERE number_of_visits > 10;
+Can you find out the patients who have visited the clinic in the last month?,SELECT patient_id FROM clinic_info WHERE last_visit_date > (CURRENT_DATE - INTERVAL '1 month');
