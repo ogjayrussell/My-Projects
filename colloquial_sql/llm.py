@@ -86,3 +86,6 @@ def add_cap_ref(prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: 
     """
     new_prompt = f"""{prompt} {prompt_suffix}\n\n{cap_ref}\n\n{cap_ref_content}"""
     return new_prompt
+
+#find out what the end of AWS code needs to look like. How does the model feed into this app?
+#Function needs an input of the propmt from console, then request the AWS model through the API.

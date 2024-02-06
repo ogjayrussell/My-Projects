@@ -25,13 +25,11 @@ def main():
     parser.add_argument("--prompt", help="Prompt for the OpenAI API")
     args = parser.parse_args()
 
-    #initial prompt
+    # 1. Recieve initial prompt from user - colloqiual
     prompt = args.prompt
     
-    
+
     with PostgresDatabase() as db:
-        
-        # print('prompt v1', prompt)
 
         #connection to the db
         db.connect_with_url(DB_URL)
@@ -39,16 +37,15 @@ def main():
         table_definitions = db.get_table_definitions_for_prompt()
     
 
-        #visibility on table definitions (structure)
+        # 2. Model gets visibility on table definitions (postgresql database)
         prompt = llm.add_cap_ref(
             prompt, #args.prompt
             f"Use these {POSTGRES_TABLE_DEFINITIONS_CAP_REF} to satisfy the database query:",
             POSTGRES_TABLE_DEFINITIONS_CAP_REF,
             table_definitions)
         
-        # print('prompt v2', prompt)
         
-        #outlining required formatting to extract the SQL query.
+        # 3. Further modifying the prompt - outlining required formatting to extract the SQL query.
         prompt = llm.add_cap_ref(
             prompt,
             f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}.", 
@@ -61,17 +58,17 @@ def main():
         print('1. MODIFIED_PROMPT:', prompt)
 
 
-        #devise an SQL query that will answer the user request with visibility on TABLE_DEFINITIONS as context. Answer with advised formatting. Delimiter to make it easy to extract the SQL query.
+        #4. Model will formulate an SQL query that will answer the user request with visibility on TABLE_DEFINITIONS as context. Answer with advised formatting. Delimiter to make it easy to extract the SQL query.
         prompt_response = llm.prompt(prompt)
 
         print('2. PROMPT_RESPONSE:',prompt_response)
 
-        #extracting the SQL query from the response
+        #5. Extracting the SQL query from the response
         sql_query = prompt_response.split(SQL_DELIMITER)[1].strip()
 
         print('3. RUN_SQL_QUERY:', sql_query)
 
-        #running the SQL query against the database
+        #6. Running the SQL query against the database
         result = db.run_sql(sql_query)
 
         print('-------- POSTGRES AI AGENT RESPONSE ---------')
