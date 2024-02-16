@@ -1,5 +1,14 @@
 # Overview
 
+## Translating Natural Text → SQL Queries to Fetch Data
+
+*Application Development*
+
+**Objective**: Increase accessibility of stored data (in postgres database). Use case is for doctors to retrieve patient data using natural language.
+
+- LLM open-source model development, deployment (AWS SageMaker), HuggingFace, OpenAI API wrappers.
+
+
 ## Predicting DDIs
 
 *Capstone Project*
