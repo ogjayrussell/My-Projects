@@ -7,6 +7,7 @@
 **Objective**: Increase accessibility of stored data (in postgres database). Use case is for doctors to retrieve patient data using natural language.
 
 - LLM open-source model development, deployment (AWS SageMaker), HuggingFace, OpenAI API wrappers.
+- Leveraged contemporary AI research to support the choice of model and other aspects of app development.
 
 
 ## Predicting DDIs
