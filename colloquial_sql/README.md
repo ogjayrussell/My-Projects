@@ -7,6 +7,7 @@ Structured Query Language (SQL) databases are where many varying sized businesse
 - SQL
     - Hosting postgres sql database
 - AWS SageMaker
+    - Containers
     - Studio
     - Deployment
     - Requests
@@ -70,14 +71,14 @@ INFERENCE
 
 
 
-## 3. Host model on AWS
-After testing the application with OpenAI's GPT-4 model containing 1.7 trillion parameters, I chose a more modest sized LLM to replace it - `Mistral 7B`. Reason for choosing Mistral 7B is because it has achieved Llama2 13B performance on all benchmarks. In effect, this model is a lot more cost efficient for local use cases. 
+## 3. Host model on AWS SageMaker
+SageMaker is an AWS service that provides a way to train and deploy transformer models directly on AWS servers. <br> After testing the application with OpenAI's GPT-4 model containing 1.7 trillion parameters, I chose a more modest sized LLM to replace it - `Mistral 7B`. Reason for choosing Mistral 7B is because it has achieved Llama2 13B performance on all benchmarks. In effect, this model is a lot more cost efficient for local use cases. 
 
-1. Create an AWS session using SageMaker Studio.
-2. Access the Mistral 7B model through Hugging Face's Deep Learning Containers (DLC).
-3. Fine-tune the model for better performance.
-4. Deploy the model.
-5. Application invokes AWS SageMaker endpoint - the model that powers the translation exercise from colloquial to SQL query. 
+1. **Create an AWS session** using SageMaker Studio.
+2. **Access the Mistral 7B** model through Hugging Face's Deep Learning Containers (DLC).
+3. **Fine-tune** the model for better performance.
+4. **Deploy** the model.
+5. **Application invokes** AWS SageMaker endpoint - the model that powers the translation exercise from colloquial to SQL query. 
 
 ## 4. Curate dataset for finetuning
 The performance of the model isn't quite there, and can be improved with a related dataset. Base models are found to be notably much more useful when fine-tuned. The composition of data is divided into `synthetic data` which I generated using gpt-4, and a much larger text-to-sql database. The combination will provide guidance on how the LLM should format its' responses and will improve general capabilities for this exercise.
