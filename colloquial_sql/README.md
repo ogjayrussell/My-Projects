@@ -21,7 +21,10 @@ Structured Query Language (SQL) databases are where many varying sized businesse
 - ~~Quantization~~
 - ~~LoRa~~
 <br>
+
 ## Project Files
+<br>
+
 | File                  | Description                                                                                      |
 |-----------------------|--------------------------------------------------------------------------------------------------|
 | `app.py`              | Intermediary between the user, model, and database                                               |
