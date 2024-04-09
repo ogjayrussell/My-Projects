@@ -13,19 +13,21 @@ dotenv.load_dotenv()
 DB_URL = os.environ.get('DB_URL')
 key = os.environ.get('OPENAI_API_KEY')
 
-POSTGRES_TABLE_DEFINITIONS_CAP_REF = "TABLE_DEFINITIONS"
+# # ------------------ prompt engineering variables ------------------
+
+POSTGRES_TABLE_DEFINITIONS_CAP_REF = "TABLE_DEFINITIONS" # capitalised references for prompt engineering
 TABLE_RESPONSE_FORMAT_CAP_REF = "TABLE_RESPONSE_FORMAT"
 
-SQL_DELIMITER = "---------"
+SQL_DELIMITER = "---------" # delimiter used to parse the SQL query from llm output
 
-#prompt into main for evalutation
+# ------------------ application ------------------
 def main():
     #to accept command line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("--prompt", help="Prompt for the OpenAI API")
     args = parser.parse_args()
 
-    # 1. Recieve initial prompt from user - colloqiual
+    # 1. Recieve initial prompt from user (in natural language)
     prompt = args.prompt
     
 
@@ -37,15 +39,16 @@ def main():
         table_definitions = db.get_table_definitions_for_prompt()
     
 
-        # 2. Model gets visibility on table definitions (postgresql database)
+    # 2. Model gets visibility on table definitions (postgresql database)
+    #llm.add_cap_ref is a prompt engineering trick to add clear capitalised references to sections of the prompt
         prompt = llm.add_cap_ref(
-            prompt, #args.prompt
+            prompt, 
             f"Use these {POSTGRES_TABLE_DEFINITIONS_CAP_REF} to satisfy the database query:",
             POSTGRES_TABLE_DEFINITIONS_CAP_REF,
             table_definitions)
         
         
-        # 3. Further modifying the prompt - outlining required formatting to extract the SQL query.
+    # 3. Further modifying the prompt - outlining required formatting to extract the SQL query.
         prompt = llm.add_cap_ref(
             prompt,
             f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}.", 
@@ -58,7 +61,7 @@ def main():
         print('1. MODIFIED_PROMPT:', prompt)
 
 
-        #4. Model will formulate an SQL query that will answer the user request with visibility on TABLE_DEFINITIONS as context. Answer with advised formatting. Delimiter to make it easy to extract the SQL query.
+    #4. With visibility from TABLE_DEFINITIONS, the model will construct an SQL query that will answer the user request. Answer with advised formatting. Delimiter to make it easy to extract the SQL query.
         prompt_response = llm.prompt(prompt)
 
         print('2. PROMPT_RESPONSE:',prompt_response)

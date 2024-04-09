@@ -12,14 +12,16 @@ Structured Query Language (SQL) databases are where many varying sized businesse
     - Deployment
     - Requests
 - HuggingFace
-    - Models
+    - Open Source Models
     - Datasets
 - OpenAI
 - Transformers
     - Fine Tuning
         - Synthetic Data Generation
-- ~~Quantization~~
-- ~~LoRa~~
+-
+    - 
+- Quantization (GGUF)
+- Prompt Engineering
 <br>
 
 ## Project Files
@@ -33,6 +35,7 @@ Structured Query Language (SQL) databases are where many varying sized businesse
 | `generate_data.ipynb` | Notebook detailing the process for generating synthetic data                                     |
 | `llm.py`              | OpenAI access and prompt engineering                                               |
 | `Mistral-7B.ipynb`    | A duplicate of the AWS model notebook, hosting Mistral 7B                                        |
+| `generate.py`    | Contains prompt engineering required to ensure a consistent output from GPT-4 that will allow the application to function                                  |
 
 ## Process
 1. **Host a postgres sql database**
