@@ -6,71 +6,60 @@ import sys
 from dotenv import load_dotenv
 import os
 from typing import Any, Dict
-import openai
+from openai import OpenAI
+import requests
 
 # load .env file
 load_dotenv()
 
 # get openai api key
-openai.api_key = os.environ.get("OPENAI_API_KEY")
-
-# ------------------ helpers ------------------
-
-
-def safe_get(data, dot_chained_keys):
-    """
-    {'a': {'b': [{'c': 1}]}}
-    safe_get(data, 'a.b.0.c') -> 1
-    """
-    keys = dot_chained_keys.split(".")
-    for key in keys:
-        try:
-            if isinstance(data, list):
-                data = data[int(key)]
-            else:
-                data = data[key]
-        except (KeyError, TypeError, IndexError):
-            return None
-    return data
-
-
-def response_parser(response: Dict[str, Any]):
-    return safe_get(response, "choices.0.message.content")
-
-
-def make_client(gpt_api_key: str):
-    return openai
+openai_api_key = os.environ.get("OPENAI_API_KEY")
 
 
 # ------------------ content generators ------------------
 
 
-def prompt(prompt: str, model: str = "gpt-4") -> str:
-    # validate the openai api key - if it's not valid, raise an error
-    if not openai.api_key:
-        sys.exit(
-            """
+def prompt(prompt):
+    """
+    Sends a prompt to OpenAI's GPT-4 model and returns the generated text response.
 
-ERORR: OpenAI API key not found. Please export your key to OPENAI_API_KEY
-
-Example bash command:
-    export OPENAI_API_KEY=<your openai apikey>
-            """
-        )
-
-    openai_client = openai
-
-    response = openai_client.ChatCompletion.create(
-        model=model,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt,
-            }
+    """
+    # Your OpenAI API key (replace with your actual API key)
+    api_key = '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'
+    
+    # API request headers
+    headers = {
+        'Authorization': f'Bearer {api_key}',
+        'Content-Type': 'application/json',
+    }
+    
+    # API request payload
+    data = {
+        'model': 'gpt-4',
+        'messages':[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+            
         ],
-    )
+        'temperature': 0.3,  # Adjust temperature as needed for creativity
+        'max_tokens': 500,  # Adjust the max token limit as needed
+    }
+    
+    # Making the API call
+    response = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, json=data)
+    
+    if response.status_code == 200:
+        response_json = response.json()
+        # Adjusting the parsing logic for chat responses
+        # Assuming you want the last message in the conversation, which is the AI's response
+        if response_json.get('choices') and response_json['choices'][0].get('message'):
+            generated_text = response_json['choices'][0]['message']['content']
+            return generated_text.strip()
+        else:
+            return "No response text found."
+    else:
+        return f"Failed to call OpenAI API: {response.status_code}, {response.text}"
 
-    return response_parser(response)
 
 def add_cap_ref(prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: str) -> str:
     """
