@@ -19,6 +19,7 @@ openai_api_key = os.environ.get("OPENAI_API_KEY")
 # ------------------ content generators ------------------
 
 
+#-----OpenAI GPT-4-----
 def prompt(prompt):
     """
     Sends a prompt to OpenAI's GPT-4 model and returns the generated text response.
@@ -60,6 +61,8 @@ def prompt(prompt):
         return f"Failed to call OpenAI API: {response.status_code}, {response.text}"
 
 
+
+
 def add_cap_ref(prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: str) -> str:
     """
     Attaches a capitalized reference to the prompt.
@@ -74,3 +77,5 @@ def add_cap_ref(prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: 
     """
     new_prompt = f"""{prompt} {prompt_suffix}\n\n{cap_ref}\n\n{cap_ref_content}"""
     return new_prompt
+
+
