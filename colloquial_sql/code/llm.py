@@ -25,11 +25,10 @@ def prompt(prompt):
 
     """
     # Your OpenAI API key (replace with your actual API key)
-    api_key = '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'
     
     # API request headers
     headers = {
-        'Authorization': f'Bearer {api_key}',
+        'Authorization': f'Bearer {openai_api_key}',
         'Content-Type': 'application/json',
     }
     
