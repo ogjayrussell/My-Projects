@@ -11,20 +11,20 @@ import llm
 dotenv.load_dotenv()
 
 DB_URL = os.environ.get('DB_URL')
-key = os.environ.get('OPENAI_API_KEY')
+# key = os.environ.get('OPENAI_API_KEY')
 
 # # ------------------ prompt engineering variables ------------------
 
-POSTGRES_TABLE_DEFINITIONS_CAP_REF = "TABLE_DEFINITIONS" # capitalised references for prompt engineering
-TABLE_RESPONSE_FORMAT_CAP_REF = "TABLE_RESPONSE_FORMAT"
+POSTGRES_TABLE_DEFINITIONS_CAP_REF = 'TABLE_DEFINITIONS' # capitalised references for prompt engineering
+TABLE_RESPONSE_FORMAT_CAP_REF = 'TABLE_RESPONSE_FORMAT'
 
-SQL_DELIMITER = "---------" # delimiter used to parse the SQL query from llm output
+SQL_DELIMITER = '---------' # delimiter used to parse the SQL query from llm output
 
 # ------------------ application ------------------
 def main():
     #to accept command line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--prompt", help="Prompt for the OpenAI API")
+    parser.add_argument('--prompt', help='Prompt for the OpenAI API')
     args = parser.parse_args()
 
     # 1. Recieve initial prompt from user (in natural language)
@@ -43,7 +43,7 @@ def main():
     #llm.add_cap_ref is a prompt engineering trick to add clear capitalised references to sections of the prompt
         prompt = llm.add_cap_ref(
             prompt, 
-            f"Use these {POSTGRES_TABLE_DEFINITIONS_CAP_REF} to satisfy the database query:",
+            f'Use these {POSTGRES_TABLE_DEFINITIONS_CAP_REF} to satisfy the database query:',
             POSTGRES_TABLE_DEFINITIONS_CAP_REF,
             table_definitions)
         
@@ -51,7 +51,7 @@ def main():
     # 3. Further modifying the prompt - outlining required formatting to extract the SQL query.
         prompt = llm.add_cap_ref(
             prompt,
-            f"Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}.", 
+            f'Respond in the format found under {TABLE_RESPONSE_FORMAT_CAP_REF}:', 
             TABLE_RESPONSE_FORMAT_CAP_REF,
             f"""$insert an explanation of the sql query as raw text here
             {SQL_DELIMITER}\n$insert sql query exclusively as raw text here

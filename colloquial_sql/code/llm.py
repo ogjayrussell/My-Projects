@@ -37,12 +37,12 @@ def prompt(prompt):
     data = {
         'model': 'gpt-4',
         'messages':[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": prompt}
+            {'role': 'system', 'content': 'You are a helpful assistant.'}, #establishing the behaviour and personality of the assistant
+            {'role': 'user', 'content': prompt}
             
         ],
-        'temperature': 0.3,  # Adjust temperature as needed for creativity
-        'max_tokens': 500,  # Adjust the max token limit as needed
+        'temperature': 0.3,  # adjusts creativity of the model. Want it low because I want consistency from the model
+        'max_tokens': 500,  # max token limit
     }
     
     # Making the API call
@@ -50,15 +50,14 @@ def prompt(prompt):
     
     if response.status_code == 200:
         response_json = response.json()
-        # Adjusting the parsing logic for chat responses
-        # Assuming you want the last message in the conversation, which is the AI's response
+        # parsing response from GPT-4
         if response_json.get('choices') and response_json['choices'][0].get('message'):
             generated_text = response_json['choices'][0]['message']['content']
             return generated_text.strip()
         else:
-            return "No response text found."
+            return 'No response text found.'
     else:
-        return f"Failed to call OpenAI API: {response.status_code}, {response.text}"
+        return f'Failed to call OpenAI API: {response.status_code}, {response.text}'
 
 
 
@@ -75,7 +74,7 @@ def add_cap_ref(prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: 
     
     returns 'Refactor this code. Make it more readable using this EXAMPLE.\n\nEXAMPLE\n\ndef foo():\n    return True'
     """
-    new_prompt = f"""{prompt} {prompt_suffix}\n\n{cap_ref}\n\n{cap_ref_content}"""
+    new_prompt = f"""\n\n{prompt} {prompt_suffix}\n\n{cap_ref}\n\n{cap_ref_content}"""
     return new_prompt
 
 
