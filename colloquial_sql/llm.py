@@ -90,32 +90,3 @@ def add_cap_ref(prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: 
 #find out what the end of AWS code needs to look like. How does the model feed into this app?
 #Function needs an input of the propmt from console, then request the AWS model through the API.
 
-def mistral(prompt):
-    import boto3
-    import json
-
-    # Initialize a SageMaker runtime client with the AWS region
-    client = boto3.client('runtime.sagemaker', region_name='your-region')
-
-    # Specify your SageMaker endpoint name
-    endpoint_name = 'your-endpoint-name'
-
-    # Prepare your input data as a JSON string (format may vary based on the model)
-    data = {
-        "instances": [
-            # Your input data here
-        ]
-    }
-    payload = json.dumps(data)
-
-    # Make the inference request
-    response = client.invoke_endpoint(
-        EndpointName=endpoint_name,
-        ContentType='application/json',  # Adjust based on the expected content type of your model
-        Body=payload
-    )
-
-    # Parse the response
-    result = json.loads(response['Body'].read().decode())
-
-    print(result)

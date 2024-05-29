@@ -11,9 +11,8 @@ import llm
 dotenv.load_dotenv()
 
 DB_URL = os.environ.get('DB_URL')
-# key = os.environ.get('OPENAI_API_KEY')
 
-# # ------------------ prompt engineering variables ------------------
+# ------------------ prompt engineering variables ------------------
 
 POSTGRES_TABLE_DEFINITIONS_CAP_REF = 'TABLE_DEFINITIONS' # capitalised references for prompt engineering
 TABLE_RESPONSE_FORMAT_CAP_REF = 'TABLE_RESPONSE_FORMAT'
